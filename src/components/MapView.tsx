@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { select } from 'd3-selection'
+import 'd3-transition'
 import { zoom, zoomIdentity } from 'd3-zoom'
-import type { D3ZoomEvent, ZoomBehavior } from 'd3-zoom'
+import type { D3ZoomEvent, ZoomBehavior, ZoomTransform } from 'd3-zoom'
 import type { Booth } from '../types'
 import { displayName } from '../types'
 import {
@@ -103,8 +104,13 @@ export default function MapView({
     }
   }, [])
 
+  const flyTo = (target: ZoomTransform) => {
+    if (!svgRef.current || !zoomRef.current) return
+    select(svgRef.current).transition().duration(500).call(zoomRef.current.transform, target)
+  }
+
   useEffect(() => {
-    if (!selectedId || !svgRef.current || !zoomRef.current) return
+    if (!selectedId) return
     const b = booths.find((x) => x.id === selectedId)
     if (!b) return
     const k = 4
@@ -112,14 +118,11 @@ export default function MapView({
     const cy = b.y + b.h / 2
     const tx = canvas.w / 2 - k * cx
     const ty = canvas.h / 2 - k * cy
-    select(svgRef.current).call(zoomRef.current.transform, zoomIdentity.translate(tx, ty).scale(k))
+    flyTo(zoomIdentity.translate(tx, ty).scale(k))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId])
 
-  const reset = () => {
-    if (!svgRef.current || !zoomRef.current) return
-    select(svgRef.current).call(zoomRef.current.transform, zoomIdentity)
-  }
+  const reset = () => flyTo(zoomIdentity)
 
   return (
     <div className="map">
