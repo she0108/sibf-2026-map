@@ -167,8 +167,10 @@ body {
   gap: 10px;
 }
 .detail__booth {
-  display: inline-block;
-  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
   background: #000;
   color: #fff;
   font-size: 14px;
@@ -176,8 +178,8 @@ body {
 }
 .detail__star {
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   border: 1px solid #ff1a1a;
   background: #fff;
