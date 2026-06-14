@@ -307,6 +307,9 @@ body {
   font-weight: 700;
   margin-bottom: 8px;
 }
+.memo__label--memo {
+  margin-top: 16px;
+}
 .memo textarea {
   width: 100%;
   padding: 12px;
@@ -320,9 +323,6 @@ body {
 }
 .memo textarea:focus {
   border-color: #00ff00;
-}
-.memo-photo {
-  margin-top: 16px;
 }
 .memo-photo__head {
   display: flex;
@@ -372,8 +372,8 @@ body {
 .memo-photo__item {
   position: relative;
   flex: 0 0 auto;
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border: 1px solid #dcdcdc;
   background: #fff;
 }
@@ -385,26 +385,25 @@ body {
 }
 .memo-photo__remove {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 24px;
-  height: 24px;
+  top: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
   padding: 0;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #555;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 .memo-photo__remove:hover {
-  border-color: #000;
-  color: #000;
+  background: rgba(0, 0, 0, 0.75);
 }
 .memo-photo__remove svg {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 .memo-photo__remove path {

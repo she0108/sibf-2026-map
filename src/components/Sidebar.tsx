@@ -293,13 +293,6 @@ function SelectedBooth({
       )}
 
       <div className="memo">
-        <div className="memo__label">메모</div>
-        <textarea
-          ref={memoRef}
-          value={memo}
-          onChange={(e) => onMemo(e.target.value)}
-          placeholder="이 부스에 대한 메모를 남겨보세요."
-        />
         <div className="memo-photo">
           <div className="memo-photo__head">
             <div className="memo__label">사진</div>
@@ -331,6 +324,13 @@ function SelectedBooth({
             </div>
           )}
         </div>
+        <div className="memo__label memo__label--memo">메모</div>
+        <textarea
+          ref={memoRef}
+          value={memo}
+          onChange={(e) => onMemo(e.target.value)}
+          placeholder="이 부스에 대한 메모를 남겨보세요."
+        />
       </div>
     </div>
   )
