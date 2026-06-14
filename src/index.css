@@ -474,6 +474,16 @@ body {
   background: #000;
   color: #fff;
 }
+.map__ctl svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: square;
+}
 
 /* ── 모바일 ── */
 @media (max-width: 768px) {

@@ -116,10 +116,6 @@ export default function MapView({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId])
 
-  const zoomBy = (f: number) => {
-    if (!svgRef.current || !zoomRef.current) return
-    select(svgRef.current).call(zoomRef.current.scaleBy, f)
-  }
   const reset = () => {
     if (!svgRef.current || !zoomRef.current) return
     select(svgRef.current).call(zoomRef.current.transform, zoomIdentity)
@@ -128,9 +124,14 @@ export default function MapView({
   return (
     <div className="map">
       <div className="map__ctl">
-        <button onClick={() => zoomBy(1.5)} aria-label="확대">+</button>
-        <button onClick={() => zoomBy(1 / 1.5)} aria-label="축소">-</button>
-        <button onClick={reset} aria-label="전체 보기">⌂</button>
+        <button onClick={reset} aria-label="전체 보기" title="전체 보기">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9V4H9" />
+            <path d="M15 4H20V9" />
+            <path d="M20 15V20H15" />
+            <path d="M9 20H4V15" />
+          </svg>
+        </button>
       </div>
       <svg
         ref={svgRef}
