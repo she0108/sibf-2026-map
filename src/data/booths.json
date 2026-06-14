@@ -1,0 +1,4233 @@
+{
+  "viewBox": {
+    "w": 3230,
+    "h": 3650
+  },
+  "booths": [
+    {
+      "id": "A1001",
+      "hall": "A",
+      "facility": false,
+      "x": 1263,
+      "y": 2595,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "주식회사 돌베개",
+          "en": "dolbegae",
+          "country": ""
+        },
+        {
+          "ko": "평산책방",
+          "en": "pyeongsanbooks",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1002",
+      "hall": "A",
+      "facility": false,
+      "x": 1446,
+      "y": 2595,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "재단법인 아모레퍼시픽재단",
+          "en": "Amorepacific Foundation",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A101",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 3081,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "고스트북스",
+          "en": "Ghost Books",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A102",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 3024,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "별빛들",
+          "en": "BYEOL BIT DEUL",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A103",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2967,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "도서출판부카",
+          "en": "bookaa",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A104",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2910,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "봄봄출판사",
+          "en": "Bombom Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A105",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 3081,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "단추 출판사",
+          "en": "Danchu Press",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A106",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 3024,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "밝은세상",
+          "en": "Balgunsesang",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A107",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2967,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "애플트리테일즈",
+          "en": "appletreetales",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A108",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2910,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "곰세마리",
+          "en": "Gomsemari",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 달리",
+          "en": "Dahli Children's Books",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A109",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 3081,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "핀드",
+          "en": "Pinned",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A110",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 3024,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "소동출판사",
+          "en": "Sodong Publishing House",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1101",
+      "hall": "A",
+      "facility": false,
+      "x": 1641,
+      "y": 2595,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "민음사 출판그룹",
+          "en": "Minumsa Publishing Group",
+          "country": ""
+        },
+        {
+          "ko": "황금가지",
+          "en": "Goldenbough",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1102",
+      "hall": "A",
+      "facility": false,
+      "x": 1875,
+      "y": 2595,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "인플루엔셜",
+          "en": "Influential",
+          "country": ""
+        },
+        {
+          "ko": "윌라",
+          "en": "Welaaa",
+          "country": ""
+        },
+        {
+          "ko": "윌라스토리",
+          "en": "WelaaaStory",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1103",
+      "hall": "A",
+      "facility": false,
+      "x": 2109,
+      "y": 2595,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "서울특별시 서울도서관",
+          "en": "Seoul Metropolitan Library",
+          "country": ""
+        },
+        {
+          "ko": "신한은행",
+          "en": "Shinhan Bank",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A111",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2967,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "시사북스(빈페이지)",
+          "en": "SISABOOKS(emptypage)",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A112",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2910,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "한국출판마케팅연구소",
+          "en": "KOREA PUBLISH MARKETING",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A113",
+      "hall": "A",
+      "facility": true,
+      "x": 193,
+      "y": 3177,
+      "w": 236,
+      "h": 27,
+      "color": "BOOTH_ORANGE",
+      "exhibitors": [
+        {
+          "ko": "일러스트레이터스 월",
+          "en": "Illustrators Wall",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1201",
+      "hall": "A",
+      "facility": false,
+      "x": 2352,
+      "y": 2595,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "타이완콘텐츠진흥원",
+          "en": "TAICCA",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "CommonWealth Education Media and Publishing Co., Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "DUMPLING CAT FAMILY",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Hakka Affairs Council",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "JS Agency Co., Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "KAWAII HYOKA / Caiji Art",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Kuroro space exploration team / memes creative partnership co., ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "REVE BOOKS LTD., CO",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Rye Field Publications, a division of Cite Publishing Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "SpringHill Publishing",
+          "country": "타이완"
+        },
+        {
+          "ko": "타코쿠마",
+          "en": "TAKOKUMA / Sunthingood Co., Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "THE GRAYHAWK AGENCY",
+          "country": "타이완"
+        }
+      ]
+    },
+    {
+      "id": "A1202",
+      "hall": "A",
+      "facility": false,
+      "x": 2586,
+      "y": 2595,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "주한태국대사관 상무공사관실",
+          "en": "OFFICE OF COMMERCIAL AFFAIRS, ROYAL THAI EMBASSY, DITP",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Amarin Corporations PCL",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "BANLUE PUBLICATIONS COMPANY LIMITED",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Channasoot Publishing",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Combang Publishing House Limited Partnership",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "DEXPRESS COMPANY LIMITED",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Avocado Books (Earlgrey co.,ltd)",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Glory Forever Public Company Limited",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Golden C Creative contentCo.,Ltd.",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "HAPPYME-D CO., LTD.",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Liatris publishing",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "MITMAKME Group",
+          "country": "태국"
+        },
+        {
+          "ko": "모카그룹",
+          "en": "Mocca Group",
+          "country": "태국"
+        },
+        {
+          "ko": "유기적 링크",
+          "en": "ORGANIC LINKS CO., LTD.",
+          "country": "태국"
+        },
+        {
+          "ko": "",
+          "en": "Silkwormbooks",
+          "country": "태국"
+        },
+        {
+          "ko": "라이터 소울 태국",
+          "en": "Writer Soul Thailand Corporation Ltd",
+          "country": "태국"
+        }
+      ]
+    },
+    {
+      "id": "A1203",
+      "hall": "A",
+      "facility": false,
+      "x": 2769,
+      "y": 2766,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "EC Publishing LLC",
+          "country": "미국"
+        }
+      ]
+    },
+    {
+      "id": "A1204",
+      "hall": "A",
+      "facility": false,
+      "x": 2769,
+      "y": 2709,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "Studio of Books LLC",
+          "country": "미국"
+        }
+      ]
+    },
+    {
+      "id": "A1205",
+      "hall": "A",
+      "facility": false,
+      "x": 2769,
+      "y": 2652,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "퀴퍼 프린츠",
+          "en": "Quipper Prints",
+          "country": "미국"
+        }
+      ]
+    },
+    {
+      "id": "A1206",
+      "hall": "A",
+      "facility": false,
+      "x": 2769,
+      "y": 2595,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "프로칠레",
+          "en": "PROCHILE",
+          "country": "칠레"
+        },
+        {
+          "ko": "",
+          "en": "Calcetines Animados",
+          "country": "칠레"
+        },
+        {
+          "ko": "",
+          "en": "VLP Agency",
+          "country": "칠레"
+        },
+        {
+          "ko": "",
+          "en": "Recrea Libros",
+          "country": "칠레"
+        }
+      ]
+    },
+    {
+      "id": "A1207",
+      "hall": "A",
+      "facility": false,
+      "x": 2769,
+      "y": 2538,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "연변교육출판사",
+          "en": "Yanbian Education Press",
+          "country": "중국"
+        },
+        {
+          "ko": "연변인민출판사",
+          "en": "Yanbian People's Press",
+          "country": "중국"
+        },
+        {
+          "ko": "연변대학출판사",
+          "en": "Yanbian University Press",
+          "country": "중국"
+        }
+      ]
+    },
+    {
+      "id": "A1301",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2451,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "엣눈북스",
+          "en": "ATNOONBOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1302",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2394,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "서사원 주식회사",
+          "en": "SEOSAWON",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1303",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2337,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "프란츠",
+          "en": "Franz",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1304",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2280,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "귤프레스",
+          "en": "guulpress",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1305",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2451,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "고요한소리",
+          "en": "Calm Voice Society",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1306",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2394,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "쿵프레스",
+          "en": "Koong Press",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1307",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2337,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "한림출판사",
+          "en": "HOLLYM CORP, PUBLISHERS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1308",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2280,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "소장각",
+          "en": "Sojanggak",
+          "country": ""
+        },
+        {
+          "ko": "비플랫폼",
+          "en": "B-PLATFORM",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1309",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2394,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)불광미디어",
+          "en": "BULKWANG MEDIA",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1310",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2337,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "라의눈주식회사",
+          "en": "Eye of Ra",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1311",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2280,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "유어마인드",
+          "en": "YOURMIND",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1401",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2451,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "이룸아이",
+          "en": "ErumI Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1402",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2394,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "펜타클",
+          "en": "pentacle",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1403",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2337,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "마음모자",
+          "en": "Maummoja",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1404",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2280,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "스토리보울",
+          "en": "STORYBOWL",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1405",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 2394,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "몽당연필",
+          "en": "mongdangpencil",
+          "country": ""
+        },
+        {
+          "ko": "구름이머무는동안",
+          "en": "Cloud Stays Books",
+          "country": ""
+        },
+        {
+          "ko": "뜰힘",
+          "en": "DDEULHIM",
+          "country": ""
+        },
+        {
+          "ko": "소유",
+          "en": "SOYOU BOOKS",
+          "country": ""
+        },
+        {
+          "ko": "아르카",
+          "en": "ARCA",
+          "country": ""
+        },
+        {
+          "ko": "지우",
+          "en": "Jiwoo Publisher",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1406",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 2280,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(사)한국기독교출판협회",
+          "en": "KCPA",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 CUP",
+          "en": "CUP (Christian University Press)",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 동연",
+          "en": "DongYeon press",
+          "country": ""
+        },
+        {
+          "ko": "문광서원",
+          "en": "Mungwangbooks",
+          "country": ""
+        },
+        {
+          "ko": "바이블네비게이션(주)",
+          "en": "Biblenavigation Inc.",
+          "country": ""
+        },
+        {
+          "ko": "블리스",
+          "en": "BLISS",
+          "country": ""
+        },
+        {
+          "ko": "쿰란출판사",
+          "en": "Qumran Publishing House",
+          "country": ""
+        },
+        {
+          "ko": "템북",
+          "en": "TEMBOOK",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1407",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 2394,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "아작",
+          "en": "ARZAK",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1408",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 2280,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)이퍼블릭 코리아",
+          "en": "tiramisu the book, safari",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1409",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 2394,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판 키다리",
+          "en": "Kidari Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1410",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 2280,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "에디토리얼",
+          "en": "Editorial Publishing Co.",
+          "country": ""
+        },
+        {
+          "ko": "가지출판사",
+          "en": "Kindsbook Publishing Company",
+          "country": ""
+        },
+        {
+          "ko": "메멘토",
+          "en": "Memento Publishing Co.",
+          "country": ""
+        },
+        {
+          "ko": "목수책방",
+          "en": "Moksu Publishing Company",
+          "country": ""
+        },
+        {
+          "ko": "혜화1117",
+          "en": "Hyehwa1117 Publishing Company",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1501",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 2394,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "시공사",
+          "en": "SIGONGSA",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1502",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 2280,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "전국동네책방네트워크",
+          "en": "Korea Local bookshop network",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1503",
+      "hall": "A",
+      "facility": false,
+      "x": 1067,
+      "y": 2280,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "엘르 코리아",
+          "en": "ELLE Korea",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1601",
+      "hall": "A",
+      "facility": false,
+      "x": 1263,
+      "y": 2280,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)열린책들",
+          "en": "The Open Books Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1602",
+      "hall": "A",
+      "facility": false,
+      "x": 1446,
+      "y": 2280,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)오팬하우스",
+          "en": "OFANHOUSE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1701",
+      "hall": "A",
+      "facility": false,
+      "x": 1641,
+      "y": 2280,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "교보문고",
+          "en": "KYOBO BOOK CENTRE",
+          "country": ""
+        },
+        {
+          "ko": "교보생명 서재",
+          "en": "Kyobo Life",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1702",
+      "hall": "A",
+      "facility": false,
+      "x": 1875,
+      "y": 2280,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "주식회사 케이티밀리의서재",
+          "en": "kt millie seojae Co.,Ltd",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1703",
+      "hall": "A",
+      "facility": false,
+      "x": 2109,
+      "y": 2280,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "예스24",
+          "en": "YES24",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1801",
+      "hall": "A",
+      "facility": false,
+      "x": 2402,
+      "y": 2394,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "Livres Canada Books",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Annick Press",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "BookLand Press",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Drawn & Quarterly",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Éditions Alto",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Éditions Fonfon",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Éditions Michel Quintin",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Éditions Québec Amérique",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Firefly Books",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Les Éditions les Malins",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "McGill-Queen’s University Press",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "Orca Book Publishers",
+          "country": "캐나다"
+        },
+        {
+          "ko": "",
+          "en": "University of Toronto Press",
+          "country": "캐나다"
+        }
+      ]
+    },
+    {
+      "id": "A1802",
+      "hall": "A",
+      "facility": false,
+      "x": 2402,
+      "y": 2280,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "펭귄랜덤하우스 UK",
+          "en": "Penguin Randomhouse UK",
+          "country": "영국"
+        }
+      ]
+    },
+    {
+      "id": "A1803",
+      "hall": "A",
+      "facility": false,
+      "x": 2586,
+      "y": 2280,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "독일 프랑크푸르트도서전",
+          "en": "Frankfurter Buchmesse",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Arbeitsgemeinschaft von Jugendbuchverlagen e.V.",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Droemer Knaur Publishing Group",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Dunkcer & Humblot GmbH",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "German Pavilion",
+          "country": "독일"
+        },
+        {
+          "ko": "주한독일문화원",
+          "en": "Goethe-Institut Korea",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Kiepenheuer & Witsch",
+          "country": "독일"
+        },
+        {
+          "ko": "모어 지베크",
+          "en": "Mohr Siebeck GmbH & Co. KG",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "MuseARTa GmbH",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Palomaa Publishing",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Rowohlt Verlag GmbH",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Schweizerbart/Borntraeger Science Publishers",
+          "country": "독일"
+        },
+        {
+          "ko": "",
+          "en": "Ullstein Buchverlage GmbH",
+          "country": "독일"
+        }
+      ]
+    },
+    {
+      "id": "A1804",
+      "hall": "A",
+      "facility": false,
+      "x": 2770,
+      "y": 2451,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "YUEWEN|WebNovel",
+          "country": "중국"
+        }
+      ]
+    },
+    {
+      "id": "A1805",
+      "hall": "A",
+      "facility": false,
+      "x": 2770,
+      "y": 2394,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "Beijiao Children Joy Education & Technology (Beijing) Co., Ltd.",
+          "country": "중국"
+        }
+      ]
+    },
+    {
+      "id": "A1806",
+      "hall": "A",
+      "facility": false,
+      "x": 2770,
+      "y": 2337,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "",
+          "en": "Wells Hamilton Literary Consultants",
+          "country": "미국"
+        }
+      ]
+    },
+    {
+      "id": "A1901",
+      "hall": "A",
+      "facility": true,
+      "x": 193,
+      "y": 1965,
+      "w": 118,
+      "h": 224,
+      "color": "BOOTH_YELLOW",
+      "exhibitors": [
+        {
+          "ko": "책만남홀2",
+          "en": "Readers Hall 2",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1902",
+      "hall": "A",
+      "facility": true,
+      "x": 378,
+      "y": 2028,
+      "w": 53,
+      "h": 167,
+      "color": "BOOTH_ORANGE",
+      "exhibitors": [
+        {
+          "ko": "아트숍",
+          "en": "Art Shop",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1904",
+      "hall": "A",
+      "facility": false,
+      "x": 441,
+      "y": 2136,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "갈라파고스",
+          "en": "Galapagos",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1905",
+      "hall": "A",
+      "facility": false,
+      "x": 441,
+      "y": 2079,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "도서출판 들녘",
+          "en": "Dulnyouk Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1906",
+      "hall": "A",
+      "facility": false,
+      "x": 441,
+      "y": 2022,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "원더박스",
+          "en": "WONDERBOX",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1907",
+      "hall": "A",
+      "facility": false,
+      "x": 441,
+      "y": 1965,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "(주)크레용하우스",
+          "en": "Crayonhouse. co. Ltd",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2001",
+      "hall": "A",
+      "facility": false,
+      "x": 575,
+      "y": 2136,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "생명의말씀사",
+          "en": "WORD OF LIFE PRESS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2002",
+      "hall": "A",
+      "facility": false,
+      "x": 575,
+      "y": 2079,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "성서유니온",
+          "en": "Scripture Union Korea",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2003",
+      "hall": "A",
+      "facility": false,
+      "x": 575,
+      "y": 2022,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "도서출판 폭스코너",
+          "en": "Foxcorner Publishing House",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 다독다독",
+          "en": "Dadokdadok Publishing",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2004",
+      "hall": "A",
+      "facility": false,
+      "x": 575,
+      "y": 1965,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "안온북스",
+          "en": "anonbooks",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2005",
+      "hall": "A",
+      "facility": false,
+      "x": 632,
+      "y": 2136,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "청미출판사",
+          "en": "CHEONGMI PUBLISHING CO.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2006",
+      "hall": "A",
+      "facility": false,
+      "x": 632,
+      "y": 2079,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "(주)학지사",
+          "en": "Hakjisa Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2007",
+      "hall": "A",
+      "facility": false,
+      "x": 632,
+      "y": 2022,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "잉글리시에그",
+          "en": "ENGLISHEGG",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2008",
+      "hall": "A",
+      "facility": false,
+      "x": 632,
+      "y": 1965,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "우리나비",
+          "en": "Woorinabi Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2009",
+      "hall": "A",
+      "facility": false,
+      "x": 758,
+      "y": 2079,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "한국출판문화산업진흥원",
+          "en": "Publication Industry Promotion Agency of Korea",
+          "country": ""
+        },
+        {
+          "ko": "그리모어",
+          "en": "Grimoire",
+          "country": ""
+        },
+        {
+          "ko": "나무의말",
+          "en": "Words of Trees",
+          "country": ""
+        },
+        {
+          "ko": "다정한시민",
+          "en": "Friendly Citizen",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 11%",
+          "en": "11% Publishing",
+          "country": ""
+        },
+        {
+          "ko": "도서출판 어웨이크",
+          "en": "AWAKE PUBLISHING HOUSE",
+          "country": ""
+        },
+        {
+          "ko": "문학정원",
+          "en": "Munhak Garden",
+          "country": ""
+        },
+        {
+          "ko": "빅퀘스천 출판사",
+          "en": "Big Questions Publishing Co.",
+          "country": ""
+        },
+        {
+          "ko": "스타라잇 출판사",
+          "en": "Starlight books",
+          "country": ""
+        },
+        {
+          "ko": "아트레이크 출판사",
+          "en": "ARTLAKE Inc",
+          "country": ""
+        },
+        {
+          "ko": "좋은습관연구소",
+          "en": "Good Habits Lab",
+          "country": ""
+        },
+        {
+          "ko": "쥬쥬베북스",
+          "en": "jujube books",
+          "country": ""
+        },
+        {
+          "ko": "책과바람",
+          "en": "Book&Wish Publisher",
+          "country": ""
+        },
+        {
+          "ko": "한밤의빛",
+          "en": "HANBAMBIT",
+          "country": ""
+        },
+        {
+          "ko": "허밍북스",
+          "en": "HUMMINGBOOKS",
+          "country": ""
+        },
+        {
+          "ko": "호랑이꿈",
+          "en": "Tigerdream Books",
+          "country": ""
+        },
+        {
+          "ko": "호손재",
+          "en": "Hosonjae",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A201",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 3081,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "안그라픽스",
+          "en": "Ahn Graphics",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2010",
+      "hall": "A",
+      "facility": false,
+      "x": 758,
+      "y": 1965,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "주식회사 난다",
+          "en": "Nanda",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A202",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 3024,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "미디어버스",
+          "en": "Mediabus",
+          "country": ""
+        },
+        {
+          "ko": "사월의눈",
+          "en": "Aprilsnow Press",
+          "country": ""
+        },
+        {
+          "ko": "프로파간다",
+          "en": "propaganda",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A203",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2967,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "인북",
+          "en": "INBOOK",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A204",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2910,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "안녕로빈",
+          "en": "hellorobin",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A205",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "킨더랜드+반달+여섯번째봄",
+          "en": "KINDERLAND+BANDAL+THE SIXTH SPRING",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A206",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)학토재",
+          "en": "HAKTOJAE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A207",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "노란상상",
+          "en": "Noran Sangsang Books",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A208",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)도서출판보리",
+          "en": "BORI",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A209",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "니케북스",
+          "en": "nikebooks",
+          "country": ""
+        },
+        {
+          "ko": "목요일출판사",
+          "en": "mokyoil",
+          "country": ""
+        },
+        {
+          "ko": "페이퍼스토리",
+          "en": "PAPERSTORY BOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A210",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "거북이북스",
+          "en": "GOBOOKY BOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2101",
+      "hall": "A",
+      "facility": false,
+      "x": 949,
+      "y": 2079,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "사회평론",
+          "en": "sahoipyoungnon",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2102",
+      "hall": "A",
+      "facility": false,
+      "x": 949,
+      "y": 1965,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "오이뮤",
+          "en": "OIMU",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2103",
+      "hall": "A",
+      "facility": false,
+      "x": 1132,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "은행나무",
+          "en": "EunHaengNaMu",
+          "country": ""
+        },
+        {
+          "ko": "(주)휴머니스트 출판그룹",
+          "en": "Humanist Publishing Group",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2201",
+      "hall": "A",
+      "facility": false,
+      "x": 1323,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "길벗어린이",
+          "en": "Gilbut Children Publishing",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2202",
+      "hall": "A",
+      "facility": false,
+      "x": 1506,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "문학과지성사",
+          "en": "Moonji Publishing Co., Ltd",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2203",
+      "hall": "A",
+      "facility": false,
+      "x": 1689,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "소전문화재단",
+          "en": "Sojeon Foundation",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2301",
+      "hall": "A",
+      "facility": false,
+      "x": 1880,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "서울특별시교육청",
+          "en": "Seoul Metropolitan Office of Education",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2302",
+      "hall": "A",
+      "facility": false,
+      "x": 2063,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "마음산책",
+          "en": "MAUMSANCHAEK",
+          "country": ""
+        },
+        {
+          "ko": "사계절출판사",
+          "en": "SAKYEJUL",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2303",
+      "hall": "A",
+      "facility": false,
+      "x": 2246,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "디자인하우스",
+          "en": "Designhouse",
+          "country": ""
+        },
+        {
+          "ko": "주식회사 오뚜기",
+          "en": "OTOKI Corporation",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A2401",
+      "hall": "A",
+      "facility": false,
+      "x": 2437,
+      "y": 1965,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "타이베이도서전재단",
+          "en": "Taipei Book Fair Foundation",
+          "country": "타이완"
+        }
+      ]
+    },
+    {
+      "id": "A2402",
+      "hall": "A",
+      "facility": true,
+      "x": 2620,
+      "y": 1965,
+      "w": 203,
+      "h": 224,
+      "color": "BOOTH_YELLOW",
+      "exhibitors": [
+        {
+          "ko": "책만남홀1",
+          "en": "Readers Hall 1",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A301",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "워크룸 프레스",
+          "en": "Workroom Press",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A302",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "산지니",
+          "en": "Sanzini",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A303",
+      "hall": "A",
+      "facility": false,
+      "x": 942,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)까치글방",
+          "en": "Kachi Publishing Co., Ltd.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A304",
+      "hall": "A",
+      "facility": false,
+      "x": 942,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "글항아리",
+          "en": "GEULHANGARI",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A305",
+      "hall": "A",
+      "facility": false,
+      "x": 1068,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "청아출판사 / 봄마중",
+          "en": "ChungA Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A306",
+      "hall": "A",
+      "facility": false,
+      "x": 1068,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판 풀빛",
+          "en": "Pulbit",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A307",
+      "hall": "A",
+      "facility": false,
+      "x": 1126,
+      "y": 3024,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판 푸른숲",
+          "en": "PRUNSOOP publisher",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A308",
+      "hall": "A",
+      "facility": false,
+      "x": 1126,
+      "y": 2910,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(사)한국과학기술출판협회",
+          "en": "Korean Science & Technology Publishers Association",
+          "country": ""
+        },
+        {
+          "ko": "군자출판사",
+          "en": "KOONJA Publishing Inc.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A401",
+      "hall": "A",
+      "facility": false,
+      "x": 1263,
+      "y": 3024,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "보림출판사",
+          "en": "BORIMPRESS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A402",
+      "hall": "A",
+      "facility": false,
+      "x": 1263,
+      "y": 2910,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "네이버웹툰",
+          "en": "NAVER WEBTOON",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A403",
+      "hall": "A",
+      "facility": false,
+      "x": 1446,
+      "y": 2910,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)위즈덤하우스",
+          "en": "WISDOMHOUSE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A501",
+      "hall": "A",
+      "facility": false,
+      "x": 1641,
+      "y": 2910,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "이야기장수",
+          "en": "STORYSELLER",
+          "country": ""
+        },
+        {
+          "ko": "솔테라이브러리",
+          "en": "Salté Library",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A502",
+      "hall": "A",
+      "facility": false,
+      "x": 1875,
+      "y": 2910,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)김영사",
+          "en": "Gimmyoung Publishers",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A503",
+      "hall": "A",
+      "facility": false,
+      "x": 2109,
+      "y": 2910,
+      "w": 161,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)문학수첩",
+          "en": "MoonhakSoochup",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A601",
+      "hall": "A",
+      "facility": true,
+      "x": 2352,
+      "y": 2910,
+      "w": 287,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "주한프랑스대사관 문화과",
+          "en": "Embassy of France in the Republic of Korea",
+          "country": "프랑스"
+        },
+        {
+          "ko": "프랑스 출판네트워크 (구 : 프랑스국제출판사무국)",
+          "en": "France Livre (formerly BIEF)",
+          "country": "프랑스"
+        }
+      ]
+    },
+    {
+      "id": "A602",
+      "hall": "A",
+      "facility": false,
+      "x": 2712,
+      "y": 2910,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "(주)쌤앤파커스",
+          "en": "Sam & Parkers Co., Ltd.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A701",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2766,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "봄알람",
+          "en": "baumealame",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A702",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2709,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "타이피스트",
+          "en": "Typist Press",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A703",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2652,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "사단법인 한국대학출판협회",
+          "en": "THE ASSOCIATION OF KOREAN UNIVERSITY PRESSES",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A704",
+      "hall": "A",
+      "facility": false,
+      "x": 193,
+      "y": 2595,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "도서출판 북극곰",
+          "en": "BOOKGOODCOME",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A705",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2766,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "국민서관",
+          "en": "KOOKMINBOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A706",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2652,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "주식회사 성안당",
+          "en": "SungAnDang Publishing Inc.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A707",
+      "hall": "A",
+      "facility": false,
+      "x": 319,
+      "y": 2595,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "책읽는고양이",
+          "en": "Reading Cat",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A708",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2709,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "소미미디어",
+          "en": "SOMYMEDIA Inc.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A709",
+      "hall": "A",
+      "facility": false,
+      "x": 376,
+      "y": 2595,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "고래인",
+          "en": "goraein",
+          "country": ""
+        },
+        {
+          "ko": "키큰도토리",
+          "en": "Kikeundotori Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A801",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2709,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "부산출판문화산업협회",
+          "en": "Busan Publishing and Culture Industry Association",
+          "country": ""
+        },
+        {
+          "ko": "고양이함수",
+          "en": "Cat Function",
+          "country": ""
+        },
+        {
+          "ko": "공공북스",
+          "en": "Gonggong books",
+          "country": ""
+        },
+        {
+          "ko": "냥이의야옹",
+          "en": "NYAONGBOOKS",
+          "country": ""
+        },
+        {
+          "ko": "뮤트스튜디오",
+          "en": "Muut Studio",
+          "country": ""
+        },
+        {
+          "ko": "씨엘미디어",
+          "en": "CLmedia",
+          "country": ""
+        },
+        {
+          "ko": "해피북미디어",
+          "en": "happybook media",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A802",
+      "hall": "A",
+      "facility": false,
+      "x": 510,
+      "y": 2595,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "주식회사 소원나무",
+          "en": "SOWONNAMU PUBLISHING CO,. LTD.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A803",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 2709,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "뜨인돌출판",
+          "en": "Danielstone Publishing",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A804",
+      "hall": "A",
+      "facility": false,
+      "x": 567,
+      "y": 2595,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "밝은미래",
+          "en": "Balgeunmirae Publishing Co",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A805",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 2709,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판 동녘",
+          "en": "Dongnyok publishers",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A806",
+      "hall": "A",
+      "facility": false,
+      "x": 693,
+      "y": 2595,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "클레이하우스 주식회사",
+          "en": "CLAYHOUSE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A807",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 2709,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "보스토크 프레스",
+          "en": "VOSTOK PRESS",
+          "country": ""
+        },
+        {
+          "ko": "프리즘오브",
+          "en": "PRISM OF",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A808",
+      "hall": "A",
+      "facility": false,
+      "x": 750,
+      "y": 2595,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "진선출판사",
+          "en": "Jinsun Publishing",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A901",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 2709,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "윌북",
+          "en": "Willbooks Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A902",
+      "hall": "A",
+      "facility": false,
+      "x": 884,
+      "y": 2595,
+      "w": 110,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "더중앙플러스",
+          "en": "The JoongAng Plus",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A903",
+      "hall": "A",
+      "facility": false,
+      "x": 1067,
+      "y": 2595,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "동아시아·허블",
+          "en": "EAST-ASIA·Hubble",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B101",
+      "hall": "B1",
+      "facility": false,
+      "x": 1673,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "어크로스",
+          "en": "Across Publishing Group, Inc",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B102",
+      "hall": "B1",
+      "facility": false,
+      "x": 1673,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "움직씨 출판사",
+          "en": "Oomzicc Publisher",
+          "country": ""
+        },
+        {
+          "ko": "오리집",
+          "en": "ORIZIP",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B103",
+      "hall": "B1",
+      "facility": false,
+      "x": 1673,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)책읽는곰",
+          "en": "Bear Books Inc.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B104",
+      "hall": "B1",
+      "facility": false,
+      "x": 1799,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "페이퍼독",
+          "en": "PAPERDOG",
+          "country": ""
+        },
+        {
+          "ko": "토끼섬",
+          "en": "Tokkiseom",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B105",
+      "hall": "B1",
+      "facility": false,
+      "x": 1799,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "송송책방",
+          "en": "SONGSONG BOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B106",
+      "hall": "B1",
+      "facility": false,
+      "x": 1799,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "꿈공장플러스",
+          "en": "DREAMBOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B107",
+      "hall": "B1",
+      "facility": false,
+      "x": 1856,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "아카넷",
+          "en": "Acanet",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B108",
+      "hall": "B1",
+      "facility": false,
+      "x": 1856,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "디자인이음",
+          "en": "designEUM",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B109",
+      "hall": "B1",
+      "facility": false,
+      "x": 1856,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "컬처룩",
+          "en": "culturelook",
+          "country": ""
+        },
+        {
+          "ko": "코쿤북스",
+          "en": "cocoonbooks",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B201",
+      "hall": "B1",
+      "facility": false,
+      "x": 1982,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "유유출판사",
+          "en": "UU PRESS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B202",
+      "hall": "B1",
+      "facility": false,
+      "x": 1982,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "바람북스",
+          "en": "BARAMBOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B203",
+      "hall": "B1",
+      "facility": false,
+      "x": 1982,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "레모 출판사",
+          "en": "LES MOTS",
+          "country": ""
+        },
+        {
+          "ko": "스위밍꿀",
+          "en": "SWIMMINGKUL",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B204",
+      "hall": "B1",
+      "facility": false,
+      "x": 2039,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "주식회사 도서출판점자",
+          "en": "Braille Publishing Company",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B205",
+      "hall": "B1",
+      "facility": false,
+      "x": 2039,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "후즈갓마이테일",
+          "en": "Whos Got My Tail",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B206",
+      "hall": "B1",
+      "facility": false,
+      "x": 2039,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "흰토끼프레스(바캉스프로젝트)",
+          "en": "Hintoki Press(Vacances)",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B207",
+      "hall": "B1",
+      "facility": true,
+      "x": 1874,
+      "y": 1739,
+      "w": 263,
+      "h": 41,
+      "color": "BOOTH_ORANGE",
+      "exhibitors": [
+        {
+          "ko": "SIBF × 글월 〈페이지 사이의 우체국〉",
+          "en": "SIBF × geulwoll 〈The Post Office Between the Pages〉",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B301",
+      "hall": "B1",
+      "facility": false,
+      "x": 2162,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판 노란돼지",
+          "en": "Yellowpig publisher",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B302",
+      "hall": "B1",
+      "facility": false,
+      "x": 2162,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "늘보의 섬",
+          "en": "SLOTH ISLAND",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B303",
+      "hall": "B1",
+      "facility": false,
+      "x": 2162,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "(주)창비교육",
+          "en": "CHANGBIEDU",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B304",
+      "hall": "B1",
+      "facility": false,
+      "x": 2219,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "서해문집",
+          "en": "Booksea Publishing Co.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B305",
+      "hall": "B1",
+      "facility": false,
+      "x": 2219,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "한림사",
+          "en": "HANLIMSA",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B306",
+      "hall": "B1",
+      "facility": false,
+      "x": 2219,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "나비클럽",
+          "en": "NABICLUB",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B307",
+      "hall": "B1",
+      "facility": false,
+      "x": 2345,
+      "y": 1566,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "국립생태원",
+          "en": "NIE PRESS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B308",
+      "hall": "B1",
+      "facility": false,
+      "x": 2345,
+      "y": 1509,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "퍼머넌트북스",
+          "en": "Permanent Books",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B309",
+      "hall": "B1",
+      "facility": false,
+      "x": 2345,
+      "y": 1395,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "주식회사 한겨레엔",
+          "en": "Hankyoreh En Co., Ltd.",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B400",
+      "hall": "B1",
+      "facility": true,
+      "x": 1301,
+      "y": 897,
+      "w": 417,
+      "h": 407,
+      "color": "BOOTH_BLUE",
+      "exhibitors": [
+        {
+          "ko": "책마을",
+          "en": "Book Village",
+          "country": ""
+        },
+        {
+          "ko": "누땡스",
+          "en": "nu thanks",
+          "country": ""
+        },
+        {
+          "ko": "텍스트 프레스",
+          "en": "textpress.kr",
+          "country": ""
+        },
+        {
+          "ko": "프레스탁!",
+          "en": "press tac!",
+          "country": ""
+        },
+        {
+          "ko": "225호",
+          "en": "Room Number 225",
+          "country": ""
+        },
+        {
+          "ko": "라마북스",
+          "en": "LLAMA BOOKS",
+          "country": ""
+        },
+        {
+          "ko": "비바 헤리티지 시리즈",
+          "en": "Viva Heritage Series",
+          "country": ""
+        },
+        {
+          "ko": "라우더북스",
+          "en": "Louder Books",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Fidèle éditions",
+          "country": "프랑스"
+        },
+        {
+          "ko": "",
+          "en": "Owl & Dog Playbooks",
+          "country": "영국"
+        },
+        {
+          "ko": "프레스룸",
+          "en": "PRESS ROOM",
+          "country": ""
+        },
+        {
+          "ko": "히스테리안",
+          "en": "Hysterian",
+          "country": ""
+        },
+        {
+          "ko": "행복한 재수가 있는",
+          "en": "Happy Jaesu Press",
+          "country": ""
+        },
+        {
+          "ko": "두낫프레스?프레스!",
+          "en": "donotpress?press!",
+          "country": ""
+        },
+        {
+          "ko": "자인운트",
+          "en": "Seinund",
+          "country": ""
+        },
+        {
+          "ko": "유연성클럽",
+          "en": "THE FLEXIBILITY CLUB",
+          "country": ""
+        },
+        {
+          "ko": "메이커메이커",
+          "en": "MAKERMAKER",
+          "country": ""
+        },
+        {
+          "ko": "0.1",
+          "en": "0.1",
+          "country": ""
+        },
+        {
+          "ko": "검정프레스",
+          "en": "geomjung press",
+          "country": ""
+        },
+        {
+          "ko": "써니라운드",
+          "en": "SUNNYROUND",
+          "country": ""
+        },
+        {
+          "ko": "픽션들",
+          "en": "fictiondle",
+          "country": ""
+        },
+        {
+          "ko": "남섬책방",
+          "en": "Namseom Books",
+          "country": ""
+        },
+        {
+          "ko": "시네필 책방 코프키노",
+          "en": "KopfKino",
+          "country": ""
+        },
+        {
+          "ko": "요호이",
+          "en": "yohoi",
+          "country": ""
+        },
+        {
+          "ko": "스튜디오604",
+          "en": "STUDIO604",
+          "country": ""
+        },
+        {
+          "ko": "돛과닻",
+          "en": "Sail and Anchor",
+          "country": ""
+        },
+        {
+          "ko": "스크립토",
+          "en": "Scripto",
+          "country": ""
+        },
+        {
+          "ko": "타바코북스",
+          "en": "TABACOBOOKS",
+          "country": ""
+        },
+        {
+          "ko": "머쉬룸",
+          "en": "mushRoom",
+          "country": ""
+        },
+        {
+          "ko": "소환사",
+          "en": "Sohwansa",
+          "country": ""
+        },
+        {
+          "ko": "마그네틱 파이브",
+          "en": "MAGNETIC 5",
+          "country": ""
+        },
+        {
+          "ko": "하호하호",
+          "en": "hahahaha",
+          "country": ""
+        },
+        {
+          "ko": "1도씨와 온도들",
+          "en": "1docci",
+          "country": ""
+        },
+        {
+          "ko": "후루룩",
+          "en": "Hooloolook",
+          "country": ""
+        },
+        {
+          "ko": "유일무이(누구나)",
+          "en": "NUGUNA",
+          "country": ""
+        },
+        {
+          "ko": "코스모 프레스",
+          "en": "kosmo press",
+          "country": ""
+        },
+        {
+          "ko": "아뜰리에아쉬",
+          "en": "AtelierH",
+          "country": ""
+        },
+        {
+          "ko": "라우트 프레스",
+          "en": "Route Press",
+          "country": ""
+        },
+        {
+          "ko": "오큐파이 더 시티",
+          "en": "Occupy the City",
+          "country": ""
+        },
+        {
+          "ko": "길고도 짧은 이야기",
+          "en": "longshortstory",
+          "country": ""
+        },
+        {
+          "ko": "무주산골영화제",
+          "en": "MJFF",
+          "country": ""
+        },
+        {
+          "ko": "미스테리어스플랜트",
+          "en": "mysterious plant",
+          "country": ""
+        },
+        {
+          "ko": "소화당",
+          "en": "SoHwaDang",
+          "country": ""
+        },
+        {
+          "ko": "김주영",
+          "en": "Joo Young Kim",
+          "country": ""
+        },
+        {
+          "ko": "삐약삐약북스",
+          "en": "PPIYACKPPIYACK BOOKS",
+          "country": ""
+        },
+        {
+          "ko": "카인드오브썸머",
+          "en": "KIND OF SUMMER",
+          "country": ""
+        },
+        {
+          "ko": "마블로켓",
+          "en": "MARBLEROCKET",
+          "country": ""
+        },
+        {
+          "ko": "블루토마토즈",
+          "en": "bluetomatoes",
+          "country": ""
+        },
+        {
+          "ko": "노말에이",
+          "en": "NOrmal A",
+          "country": ""
+        },
+        {
+          "ko": "연필과머그",
+          "en": "Pencil and Mug",
+          "country": ""
+        },
+        {
+          "ko": "까막북",
+          "en": "KKAMAKBOOK",
+          "country": ""
+        },
+        {
+          "ko": "에트르",
+          "en": "ETRE",
+          "country": ""
+        },
+        {
+          "ko": "책덕",
+          "en": "Bookduck",
+          "country": ""
+        },
+        {
+          "ko": "디 오브젝트",
+          "en": "the object",
+          "country": ""
+        },
+        {
+          "ko": "TEMPORARY BOOKSHOP | C시지G",
+          "en": "TEMPORARY BOOKSHOP | CsijiG",
+          "country": ""
+        },
+        {
+          "ko": "파도",
+          "en": "SEEYOURSEA",
+          "country": ""
+        },
+        {
+          "ko": "선과 결",
+          "en": "LineGrain",
+          "country": ""
+        },
+        {
+          "ko": "탱크 프레스",
+          "en": "TANK Press",
+          "country": ""
+        },
+        {
+          "ko": "바이블랭크",
+          "en": "by_[blank]",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "te editions",
+          "country": "미국"
+        },
+        {
+          "ko": "",
+          "en": "One Stroke",
+          "country": "일본"
+        },
+        {
+          "ko": "마테리알",
+          "en": "ma-te-ri-al",
+          "country": ""
+        },
+        {
+          "ko": "소시민워크",
+          "en": "sosiminwork",
+          "country": ""
+        },
+        {
+          "ko": "그래픽하",
+          "en": "GRAPHICHA",
+          "country": ""
+        },
+        {
+          "ko": "인공위성+82",
+          "en": "Satellite+82",
+          "country": ""
+        },
+        {
+          "ko": "수목요일(모눈지)",
+          "en": "sumokyoil(monunji)",
+          "country": ""
+        },
+        {
+          "ko": "하이오 웍스",
+          "en": "Haio works",
+          "country": ""
+        },
+        {
+          "ko": "미씽아카이브",
+          "en": "missing_archive",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Image 3",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Homeward",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Rusuban Studio",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Indie Publishers Association of Taiwan",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "comma books",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Guerrilla Publishing Co., Ltd",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Halftone Press",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Kuroshio Culture Co. Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "LA VIE CINE studio",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Monsoon Zone Publishing Co., Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "MULU OFFICE CO., LTD.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "SiLoo Story",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Slowork Publishing Ltd.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "TOKHIU BOOKS CO., LTD.",
+          "country": "타이완"
+        },
+        {
+          "ko": "",
+          "en": "Independent Publishers Expo",
+          "country": "일본"
+        },
+        {
+          "ko": "",
+          "en": "Singapore Art Book Fair",
+          "country": "싱가포르"
+        },
+        {
+          "ko": "",
+          "en": "Blue Sheep Co., ltd.",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "ELVIS PRESS",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "LLC INSECTS",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Manazuru Publishing",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Milllion Years Bookstore",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Nanarokusha Publishing",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "rn press INC.",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Seki Shobo",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Shinyodo",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Shoshikankanbou",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Tababooks",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "The Editorial Department Inc.",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Troublemakers Publishing",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Tsumujikaze-sha",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Thing Books Pte Ltd",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "THEBOOKSHOW",
+          "country": ""
+        },
+        {
+          "ko": "",
+          "en": "Thumb Books",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B501",
+      "hall": "B1",
+      "facility": false,
+      "x": 1799,
+      "y": 1080,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "한솔제지(주)",
+          "en": "Hansol Paper",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B502",
+      "hall": "B1",
+      "facility": false,
+      "x": 1799,
+      "y": 897,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "윤에디션",
+          "en": "YUN EDITION",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B503",
+      "hall": "B1",
+      "facility": false,
+      "x": 1856,
+      "y": 897,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "롤러코스터",
+          "en": "Rollercoaster Press",
+          "country": ""
+        },
+        {
+          "ko": "초록비책공방",
+          "en": "Greenrainbooks",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B504",
+      "hall": "B1",
+      "facility": false,
+      "x": 1982,
+      "y": 1080,
+      "w": 110,
+      "h": 224,
+      "exhibitors": [
+        {
+          "ko": "마포출판문화진흥센터",
+          "en": "PLATFORM P",
+          "country": ""
+        },
+        {
+          "ko": "경옥초이",
+          "en": "KYONGOKCHOI BOOKS",
+          "country": ""
+        },
+        {
+          "ko": "내로라 출판사",
+          "en": "The Naerora Bookmakers",
+          "country": ""
+        },
+        {
+          "ko": "니라이카나이",
+          "en": "NIRAIKANAI",
+          "country": ""
+        },
+        {
+          "ko": "도깨비사",
+          "en": "dokebisha",
+          "country": ""
+        },
+        {
+          "ko": "두두플래닛",
+          "en": "Dodoplanet",
+          "country": ""
+        },
+        {
+          "ko": "두유라이크",
+          "en": "DO! U LIKE",
+          "country": ""
+        },
+        {
+          "ko": "리케의 디자인랩",
+          "en": "lidilab",
+          "country": ""
+        },
+        {
+          "ko": "마리유니버스",
+          "en": "Mariuniverse",
+          "country": ""
+        },
+        {
+          "ko": "머핀북",
+          "en": "MuffinbooK",
+          "country": ""
+        },
+        {
+          "ko": "무블출판사",
+          "en": "MOBL Books",
+          "country": ""
+        },
+        {
+          "ko": "무중력프레스",
+          "en": "Zero Gravity Press",
+          "country": ""
+        },
+        {
+          "ko": "물숨",
+          "en": "moolsoom",
+          "country": ""
+        },
+        {
+          "ko": "밤두",
+          "en": "bamdoo press",
+          "country": ""
+        },
+        {
+          "ko": "북스토어블",
+          "en": "bookstorable",
+          "country": ""
+        },
+        {
+          "ko": "붉은사슴",
+          "en": "Red Deer",
+          "country": ""
+        },
+        {
+          "ko": "빛틈",
+          "en": "vitteum",
+          "country": ""
+        },
+        {
+          "ko": "생각하는 달팽이",
+          "en": "Thinking Snail",
+          "country": ""
+        },
+        {
+          "ko": "선홍빛",
+          "en": "Sunhongbit",
+          "country": ""
+        },
+        {
+          "ko": "스튜디오 에디트",
+          "en": "studio_edit",
+          "country": ""
+        },
+        {
+          "ko": "스튜디오블랑",
+          "en": "STUDIO BLANC",
+          "country": ""
+        },
+        {
+          "ko": "쓰는사람",
+          "en": "SNSR",
+          "country": ""
+        },
+        {
+          "ko": "여가도시",
+          "en": "Yeogadosi",
+          "country": ""
+        },
+        {
+          "ko": "여름의서재",
+          "en": "summerbooks",
+          "country": ""
+        },
+        {
+          "ko": "유유히",
+          "en": "UUHEE BOOKS",
+          "country": ""
+        },
+        {
+          "ko": "인생책방/마이북하우스",
+          "en": "Lifebookstore/Mybookhouse",
+          "country": ""
+        },
+        {
+          "ko": "정재이프레스",
+          "en": "j.jaeipress",
+          "country": ""
+        },
+        {
+          "ko": "출판사 이베르",
+          "en": "hiver press",
+          "country": ""
+        },
+        {
+          "ko": "테일브릿지",
+          "en": "The Tale Bridge",
+          "country": ""
+        },
+        {
+          "ko": "톰톰프레스",
+          "en": "TomTom Press",
+          "country": ""
+        },
+        {
+          "ko": "페이지미디어브릿지",
+          "en": "PMB",
+          "country": ""
+        },
+        {
+          "ko": "해파리",
+          "en": "HAEPARY",
+          "country": ""
+        },
+        {
+          "ko": "혼혼",
+          "en": "HONHON",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B505",
+      "hall": "B1",
+      "facility": false,
+      "x": 1982,
+      "y": 897,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "쪽프레스",
+          "en": "JJOKKPRESS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B506",
+      "hall": "B1",
+      "facility": false,
+      "x": 2039,
+      "y": 897,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "도서출판도반",
+          "en": "DOBAN BOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B601",
+      "hall": "B1",
+      "facility": false,
+      "x": 2173,
+      "y": 1137,
+      "w": 236,
+      "h": 167,
+      "exhibitors": [
+        {
+          "ko": "안전가옥",
+          "en": "SAFEHOUSE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B602",
+      "hall": "B1",
+      "facility": false,
+      "x": 2173,
+      "y": 897,
+      "w": 236,
+      "h": 167,
+      "exhibitors": [
+        {
+          "ko": "문학동네",
+          "en": "Munhakdongne",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B603",
+      "hall": "B1",
+      "facility": false,
+      "x": 2482,
+      "y": 1137,
+      "w": 236,
+      "h": 167,
+      "exhibitors": [
+        {
+          "ko": "창비",
+          "en": "Changbi Publishers",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B604",
+      "hall": "B1",
+      "facility": false,
+      "x": 2482,
+      "y": 954,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "아침달",
+          "en": "ACHIMDAL",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B605",
+      "hall": "B1",
+      "facility": false,
+      "x": 2482,
+      "y": 897,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "다람출판사",
+          "en": "Darambooks Publishing",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B606",
+      "hall": "B1",
+      "facility": false,
+      "x": 2539,
+      "y": 1011,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "주식회사 휴먼밸류 / 더클래스",
+          "en": "HUMAN VALUE, THE CLASS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B607",
+      "hall": "B1",
+      "facility": false,
+      "x": 2539,
+      "y": 954,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "북챗",
+          "en": "BOOKCHAT",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B608",
+      "hall": "B1",
+      "facility": false,
+      "x": 2539,
+      "y": 897,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "썸북스",
+          "en": "SOMEBOOKS",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B609",
+      "hall": "B1",
+      "facility": false,
+      "x": 2665,
+      "y": 897,
+      "w": 53,
+      "h": 167,
+      "exhibitors": [
+        {
+          "ko": "국가보훈부",
+          "en": "Ministry of Patriots and Veterans Affairs",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B701",
+      "hall": "B1",
+      "facility": true,
+      "x": 1301,
+      "y": 542,
+      "w": 371,
+      "h": 264,
+      "color": "BOOTH_PURPLE",
+      "exhibitors": [
+        {
+          "ko": "(주)커피 리브레",
+          "en": "COFFEE LIBRE",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B702",
+      "hall": "B1",
+      "facility": true,
+      "x": 1741,
+      "y": 542,
+      "w": 144,
+      "h": 264,
+      "color": "BOOTH_DARK",
+      "exhibitors": [
+        {
+          "ko": "BBK × SIBF 책 라운지 with 일룸",
+          "en": "BBK × SIBF Book Lounge with iloom",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B703",
+      "hall": "B1",
+      "facility": true,
+      "x": 1954,
+      "y": 542,
+      "w": 144,
+      "h": 264,
+      "color": "BOOTH_DARK",
+      "exhibitors": [
+        {
+          "ko": "주제전시",
+          "en": "Theme Exhibition",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B704",
+      "hall": "B1",
+      "facility": true,
+      "x": 2167,
+      "y": 542,
+      "w": 382,
+      "h": 264,
+      "color": "BOOTH_YELLOW",
+      "exhibitors": [
+        {
+          "ko": "책마당",
+          "en": "Book Salon",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B705",
+      "hall": "B1",
+      "facility": true,
+      "x": 2618,
+      "y": 721,
+      "w": 100,
+      "h": 85,
+      "exhibitors": [
+        {
+          "ko": "프레스룸",
+          "en": "Press Room",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B706",
+      "hall": "B1",
+      "facility": true,
+      "x": 2618,
+      "y": 631,
+      "w": 100,
+      "h": 85,
+      "exhibitors": [
+        {
+          "ko": "연사 라운지3",
+          "en": "Speakders Lounge 3",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "B707",
+      "hall": "B1",
+      "facility": true,
+      "x": 2618,
+      "y": 542,
+      "w": 100,
+      "h": 85,
+      "exhibitors": [
+        {
+          "ko": "연사 라운지",
+          "en": "Speakders Lounge",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1903",
+      "hall": "A",
+      "facility": true,
+      "x": 384,
+      "y": 1965,
+      "w": 53,
+      "h": 53,
+      "exhibitors": [
+        {
+          "ko": "연사 라운지2",
+          "en": "Speakders Lounge 2",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "A1807",
+      "hall": "A",
+      "facility": true,
+      "x": 2770,
+      "y": 2223,
+      "w": 53,
+      "h": 110,
+      "exhibitors": [
+        {
+          "ko": "연사 라운지1",
+          "en": "Speakders Lounge 1",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "Ticket-Info_B1",
+      "hall": "B1",
+      "facility": true,
+      "x": 2999,
+      "y": 1125,
+      "w": 112,
+      "h": 268,
+      "exhibitors": [
+        {
+          "ko": "B1홀 티켓‧인포데스크",
+          "en": "Ticket Office‧Information - Hall B1",
+          "country": ""
+        }
+      ]
+    },
+    {
+      "id": "Ticket-Info_A",
+      "hall": "A",
+      "facility": true,
+      "x": 2638,
+      "y": 3318,
+      "w": 268,
+      "h": 112,
+      "exhibitors": [
+        {
+          "ko": "A홀 티켓‧인포데스크",
+          "en": "Ticket Office‧Information - Hall A",
+          "country": ""
+        }
+      ]
+    }
+  ]
+}
