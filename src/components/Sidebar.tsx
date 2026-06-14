@@ -78,6 +78,10 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
           onChange={(e) => setQuery(e.target.value)}
           placeholder="출판사명 / 부스번호 검색"
         />
+        <svg className="side__search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="6" />
+          <path d="M15.5 15.5L20 20" />
+        </svg>
       </div>
 
       {hasQuery && (
