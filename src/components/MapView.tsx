@@ -89,7 +89,7 @@ export default function MapView({
       .scaleExtent([0.5, 14])
       .filter((event: ZoomFilterEvent) => {
         if (event.type && String(event.type).startsWith('touch')) {
-          return Boolean(event.touches && event.touches.length >= 2)
+          return Boolean(event.touches && event.touches.length >= 1)
         }
         if (event.type === 'wheel') return true
         return !event.ctrlKey && !event.button
