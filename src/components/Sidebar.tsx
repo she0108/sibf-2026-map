@@ -24,7 +24,6 @@ const PHOTO_QUALITY = 0.82
 
 export default function Sidebar({ booths, selected, visit, onSelect, onClearSelect, onToggleVisit }: Props) {
   const [query, setQuery] = useState('')
-  const [searchOpen, setSearchOpen] = useState(false)
   const hasQuery = Boolean(query.trim())
 
   const results = useMemo<Result[]>(() => {
@@ -64,41 +63,13 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
 
   const selectBooth = (id: string) => {
     setQuery('')
-    setSearchOpen(false)
     onSelect(id)
   }
 
   return (
-    <aside
-      className={
-        'side' +
-        (searchOpen ? ' is-search-open' : '') +
-        (selected && !hasQuery ? ' has-selected' : '')
-      }
-    >
+    <aside className="side">
       <div className="side__head">
         <h1 className="side__title">2026 서울국제도서전 부스배치도</h1>
-        <button
-          type="button"
-          className="side__search-toggle"
-          aria-label={searchOpen ? '검색 닫기' : '검색 열기'}
-          aria-expanded={searchOpen}
-          onClick={() => setSearchOpen((v) => !v)}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            {searchOpen ? (
-              <>
-                <path d="M7 7L17 17" />
-                <path d="M17 7L7 17" />
-              </>
-            ) : (
-              <>
-                <circle cx="11" cy="11" r="6" />
-                <path d="M15.5 15.5L20 20" />
-              </>
-            )}
-          </svg>
-        </button>
       </div>
 
       <div className="side__search">
