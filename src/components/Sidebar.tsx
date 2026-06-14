@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ChangeEvent } from 'react'
 import type { Booth } from '../types'
 import { displayName } from '../types'
@@ -183,6 +183,23 @@ function SelectedBooth({
   const primary = displayName(selected.exhibitors[0]) || selected.id
   const extraCount = Math.max(selected.exhibitors.length - 1, 0)
 
+  const memoRef = useRef<HTMLTextAreaElement>(null)
+
+  useLayoutEffect(() => {
+    const el = memoRef.current
+    if (!el) return
+    const cs = getComputedStyle(el)
+    const line = parseFloat(cs.lineHeight)
+    const padV = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)
+    const borderV = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth)
+    const min = line * 2 + padV + borderV
+    const max = line * 7 + padV + borderV
+    el.style.height = 'auto'
+    const next = Math.min(max, Math.max(min, el.scrollHeight + borderV))
+    el.style.height = next + 'px'
+    el.style.overflowY = el.scrollHeight + borderV > max ? 'auto' : 'hidden'
+  }, [memo])
+
   const onMemo = (v: string) => {
     setMemo(v)
     saveMemo(selected.id, v)
@@ -278,6 +295,7 @@ function SelectedBooth({
       <div className="memo">
         <div className="memo__label">메모</div>
         <textarea
+          ref={memoRef}
           value={memo}
           onChange={(e) => onMemo(e.target.value)}
           placeholder="이 부스에 대한 메모를 남겨보세요."

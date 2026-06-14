@@ -309,13 +309,13 @@ body {
 }
 .memo textarea {
   width: 100%;
-  min-height: 120px;
   padding: 12px;
   border: 1px solid #dcdcdc;
   font-size: 14px;
   line-height: 1.6;
   font-family: inherit;
-  resize: vertical;
+  resize: none;
+  overflow-y: hidden;
   outline: none;
 }
 .memo textarea:focus {
