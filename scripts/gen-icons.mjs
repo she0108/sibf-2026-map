@@ -5,25 +5,32 @@ import { createCanvas, GlobalFonts } from '@napi-rs/canvas'
 
 const out = join(dirname(fileURLToPath(import.meta.url)), '..', 'public')
 
-// 검정 바탕 + 흰 "SIBF". maskable 안전 영역(중앙 80%) 안에 글자가 들어가도록 크기를 잡는다.
+// 검정 바탕 + 형광 연두(하이라이트 색) "SIBF".
+// maskable 안전 영역(중앙 80%) 안에 글자가 들어가도록 크기를 잡는다.
+const TEXT_COLOR = '#00ff00'
+const LINES = ['SIBF']
+
 function draw(size) {
   const canvas = createCanvas(size, size)
   const ctx = canvas.getContext('2d')
   ctx.fillStyle = '#000'
   ctx.fillRect(0, 0, size, size)
-  ctx.fillStyle = '#fff'
+  ctx.fillStyle = TEXT_COLOR
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   const family = GlobalFonts.families.find((f) => /arial/i.test(f.family))?.family || 'sans-serif'
-  // 글자 폭이 안전 영역(약 62%)을 넘지 않도록 폰트 크기를 줄여 맞춘다.
-  let fontSize = size * 0.34
-  const maxWidth = size * 0.62
+  // 가장 넓은 줄이 안전 영역(약 60%)을 넘지 않도록 폰트 크기를 줄여 맞춘다.
+  let fontSize = size * 0.3
+  const maxWidth = size * 0.6
   for (;;) {
     ctx.font = `700 ${fontSize}px ${family}`
-    if (ctx.measureText('SIBF').width <= maxWidth || fontSize <= 8) break
+    const widest = Math.max(...LINES.map((t) => ctx.measureText(t).width))
+    if (widest <= maxWidth || fontSize <= 8) break
     fontSize -= 2
   }
-  ctx.fillText('SIBF', size / 2, size / 2 + size * 0.02)
+  const lineH = fontSize * 1.05
+  const top = size / 2 - (lineH * (LINES.length - 1)) / 2
+  LINES.forEach((t, i) => ctx.fillText(t, size / 2, top + lineH * i))
   return canvas.toBuffer('image/png')
 }
 
