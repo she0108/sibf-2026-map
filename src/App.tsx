@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { usePostHog } from '@posthog/react'
 import rawData from './data/booths.json'
 import type { BoothData } from './types'
 import MapView from './components/MapView'
@@ -8,6 +9,7 @@ import { loadVisit, saveVisit } from './lib/storage'
 const data = rawData as unknown as BoothData
 
 export default function App() {
+  const posthog = usePostHog()
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [visit, setVisit] = useState<Set<string>>(() => loadVisit())
@@ -15,9 +17,11 @@ export default function App() {
   const toggleVisit = (id: string) => {
     setVisit((prev) => {
       const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
+      const adding = !next.has(id)
+      if (adding) next.add(id)
+      else next.delete(id)
       saveVisit(next)
+      posthog.capture('visit_toggled', { booth_id: id, action: adding ? 'add' : 'remove' })
       return next
     })
   }

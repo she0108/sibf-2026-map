@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { usePostHog } from '@posthog/react'
 import { select } from 'd3-selection'
 import 'd3-transition'
 import { zoom, zoomIdentity } from 'd3-zoom'
@@ -76,6 +77,12 @@ export default function MapView({
   onSelect,
   onHover,
 }: Props) {
+  const posthog = usePostHog()
+  const handleSelect = (id: string) => {
+    posthog.capture('booth_selected', { booth_id: id, source: 'map' })
+    onSelect(id)
+  }
+
   const svgRef = useRef<SVGSVGElement | null>(null)
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null)
   const [t, setT] = useState<{ k: number; x: number; y: number }>({ k: 1, x: 0, y: 0 })
@@ -151,7 +158,7 @@ export default function MapView({
               selected={b.id === selectedId}
               hovered={b.id === hoveredId}
               visit={visit.has(b.id)}
-              onSelect={onSelect}
+              onSelect={handleSelect}
               onHover={onHover}
             />
           ))}

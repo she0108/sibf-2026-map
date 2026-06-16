@@ -1,5 +1,6 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { ChangeEvent } from 'react'
+import { usePostHog } from '@posthog/react'
 import type { Booth } from '../types'
 import { displayName } from '../types'
 import { loadMemo, loadMemoPhotos, saveMemo, saveMemoPhotos } from '../lib/storage'
@@ -23,8 +24,10 @@ const MAX_PHOTO_SIZE = 1280
 const PHOTO_QUALITY = 0.82
 
 export default function Sidebar({ booths, selected, visit, onSelect, onClearSelect, onToggleVisit }: Props) {
+  const posthog = usePostHog()
   const [query, setQuery] = useState('')
   const hasQuery = Boolean(query.trim())
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const results = useMemo<Result[]>(() => {
     const q = query.trim().toLowerCase()
@@ -61,7 +64,19 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
       .sort((a, b) => a.label.localeCompare(b.label, 'ko-KR'))
   }, [booths])
 
-  const selectBooth = (id: string) => {
+  useEffect(() => {
+    if (!hasQuery) return
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
+    searchTimerRef.current = setTimeout(() => {
+      posthog.capture('search_performed', { result_count: results.length })
+    }, 800)
+    return () => {
+      if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
+    }
+  }, [query, results.length, hasQuery])
+
+  const selectBooth = (id: string, source: 'search' | 'list') => {
+    posthog.capture('booth_selected', { booth_id: id, source })
     setQuery('')
     onSelect(id)
   }
@@ -88,7 +103,7 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
         <ul className="side__results">
           {results.length === 0 && <li className="side__empty">검색 결과 없음</li>}
           {results.map((r, i) => (
-            <li key={r.id + i} className="result" onClick={() => selectBooth(r.id)}>
+            <li key={r.id + i} className="result" onClick={() => selectBooth(r.id, 'search')}>
               <span className="result__name">{r.label}</span>
               <span className="result__meta">{r.meta}</span>
               <button
@@ -120,7 +135,7 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
         <BoothList
           booths={allBooths}
           visit={visit}
-          onSelect={selectBooth}
+          onSelect={(id) => selectBooth(id, 'list')}
           onToggleVisit={onToggleVisit}
         />
       )}
@@ -175,6 +190,7 @@ function SelectedBooth({
   onClearSelect: () => void
   onToggleVisit: (id: string) => void
 }) {
+  const posthog = usePostHog()
   const [memo, setMemo] = useState(() => loadMemo(selected.id))
   const [photos, setPhotos] = useState(() => loadMemoPhotos(selected.id))
   const [photoError, setPhotoError] = useState('')
@@ -184,6 +200,7 @@ function SelectedBooth({
   const extraCount = Math.max(selected.exhibitors.length - 1, 0)
 
   const memoRef = useRef<HTMLTextAreaElement>(null)
+  const memoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useLayoutEffect(() => {
     const el = memoRef.current
@@ -203,6 +220,10 @@ function SelectedBooth({
   const onMemo = (v: string) => {
     setMemo(v)
     saveMemo(selected.id, v)
+    if (memoTimerRef.current) clearTimeout(memoTimerRef.current)
+    memoTimerRef.current = setTimeout(() => {
+      posthog.capture('memo_saved', { booth_id: selected.id })
+    }, 1500)
   }
 
   const onPhoto = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -220,6 +241,7 @@ function SelectedBooth({
       setPhotos((prev) => {
         const next = [...prev, ...added]
         saveMemoPhotos(selected.id, next)
+        posthog.capture('photo_added', { booth_id: selected.id, count: files.length, total: next.length })
         return next
       })
       setPhotoError('')
