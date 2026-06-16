@@ -75,6 +75,10 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
     }
   }, [query, results.length, hasQuery])
 
+  useEffect(() => {
+    if (selected) setQuery('')
+  }, [selected?.id])
+
   const selectBooth = (id: string, source: 'search' | 'list') => {
     posthog.capture('booth_selected', { booth_id: id, source })
     setQuery('')
