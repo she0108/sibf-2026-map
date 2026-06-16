@@ -23,7 +23,11 @@ https://sibf2026map.pages.dev
 
 ## Screenshots
 
-주요 화면 스크린샷을 추가할 예정입니다.
+<p>
+  <img src="./public/screenshot_1.png" alt="SIBF 2026 Map screenshot 1" width="32%" />
+  <img src="./public/screenshot_2.png" alt="SIBF 2026 Map screenshot 2" width="32%" />
+  <img src="./public/screenshot_4.png" alt="SIBF 2026 Map screenshot 4" width="32%" />
+</p>
 
 ## Tech Stack
 
