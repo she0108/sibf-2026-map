@@ -306,15 +306,8 @@ body {
   color: #00875a;
 }
 
-.memo__label {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.memo__label--memo {
-  margin-top: 16px;
-}
 .memo textarea {
+  margin-top: 16px;
   width: 100%;
   padding: 12px;
   border: 1px solid #dcdcdc;
@@ -328,11 +321,8 @@ body {
 .memo textarea:focus {
   border-color: #00ff00;
 }
-.memo-photo__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.detail__photo-add {
+  margin-left: auto;
 }
 .memo-photo__add {
   flex-shrink: 0;

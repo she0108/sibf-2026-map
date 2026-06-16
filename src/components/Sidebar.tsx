@@ -305,6 +305,10 @@ function SelectedBooth({
               </button>
             </>
           )}
+          <label className="memo-photo__add detail__photo-add">
+            사진 첨부
+            <input type="file" accept="image/*" multiple onChange={onPhoto} />
+          </label>
         </div>
       </div>
 
@@ -322,13 +326,6 @@ function SelectedBooth({
 
       <div className="memo">
         <div className="memo-photo">
-          <div className="memo-photo__head">
-            <div className="memo__label">사진</div>
-            <label className="memo-photo__add">
-              사진 첨부
-              <input type="file" accept="image/*" multiple onChange={onPhoto} />
-            </label>
-          </div>
           {photoError && <div className="memo-photo__error">{photoError}</div>}
           {photos.length > 0 && (
             <div className="memo-photo__scroll">
@@ -352,7 +349,6 @@ function SelectedBooth({
             </div>
           )}
         </div>
-        <div className="memo__label memo__label--memo">메모</div>
         <textarea
           ref={memoRef}
           value={memo}
