@@ -131,9 +131,25 @@ export default function MapView({
 
   const reset = () => flyTo(zoomIdentity)
 
+  const zoomBy = (factor: number) => {
+    if (!svgRef.current || !zoomRef.current) return
+    select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy, factor)
+  }
+
   return (
     <div className="map">
       <div className="map__ctl">
+        <button onClick={() => zoomBy(1.5)} aria-label="확대" title="확대">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5V19" />
+            <path d="M5 12H19" />
+          </svg>
+        </button>
+        <button onClick={() => zoomBy(1 / 1.5)} aria-label="축소" title="축소">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12H19" />
+          </svg>
+        </button>
         <button onClick={reset} aria-label="전체 보기" title="전체 보기">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 9V4H9" />
