@@ -198,9 +198,26 @@ function SelectedBooth({
 }) {
   const posthog = usePostHog()
   const [memo, setMemo] = useState(() => loadMemo(selected.id))
-  const [photos, setPhotos] = useState(() => loadMemoPhotos(selected.id))
+  const [photos, setPhotos] = useState<Blob[]>([])
   const [photoError, setPhotoError] = useState('')
   const [listOpen, setListOpen] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    loadMemoPhotos(selected.id).then((blobs) => {
+      if (!cancelled) setPhotos(blobs)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [selected.id])
+
+  const photoUrls = useMemo(() => photos.map((b) => URL.createObjectURL(b)), [photos])
+  useEffect(() => {
+    return () => {
+      photoUrls.forEach((u) => URL.revokeObjectURL(u))
+    }
+  }, [photoUrls])
   const visited = visit.has(selected.id)
   const primary = displayName(selected.exhibitors[0]) || selected.id
   const extraCount = Math.max(selected.exhibitors.length - 1, 0)
@@ -244,24 +261,24 @@ function SelectedBooth({
 
     try {
       const added = await Promise.all(files.map((file) => resizeImage(file)))
-      setPhotos((prev) => {
-        const next = [...prev, ...added]
-        saveMemoPhotos(selected.id, next)
-        posthog.capture('photo_added', { booth_id: selected.id, count: files.length, total: next.length })
-        return next
-      })
+      const existing = await loadMemoPhotos(selected.id)
+      const next = [...existing, ...added]
+      if (!(await saveMemoPhotos(selected.id, next))) {
+        setPhotoError('저장 공간이 부족해요. 다른 부스의 사진을 정리해 주세요.')
+        return
+      }
+      setPhotos(next)
+      posthog.capture('photo_added', { booth_id: selected.id, count: files.length, total: next.length })
       setPhotoError('')
     } catch {
       setPhotoError('사진을 불러오지 못했어요.')
     }
   }
 
-  const onRemovePhoto = (index: number) => {
-    setPhotos((prev) => {
-      const next = prev.filter((_, i) => i !== index)
-      saveMemoPhotos(selected.id, next)
-      return next
-    })
+  const onRemovePhoto = async (index: number) => {
+    const next = photos.filter((_, i) => i !== index)
+    await saveMemoPhotos(selected.id, next)
+    setPhotos(next)
     setPhotoError('')
   }
 
@@ -327,9 +344,9 @@ function SelectedBooth({
       <div className="memo">
         <div className="memo-photo">
           {photoError && <div className="memo-photo__error">{photoError}</div>}
-          {photos.length > 0 && (
+          {photoUrls.length > 0 && (
             <div className="memo-photo__scroll">
-              {photos.map((src, i) => (
+              {photoUrls.map((src, i) => (
                 <div className="memo-photo__item" key={i}>
                   <img src={src} alt={`${selected.id} 메모 사진 ${i + 1}`} />
                   <button
@@ -360,7 +377,7 @@ function SelectedBooth({
   )
 }
 
-function resizeImage(file: File): Promise<string> {
+function resizeImage(file: File): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onerror = () => reject(new Error('read-failed'))
@@ -380,7 +397,14 @@ function resizeImage(file: File): Promise<string> {
           return
         }
         ctx.drawImage(img, 0, 0, width, height)
-        resolve(canvas.toDataURL('image/jpeg', PHOTO_QUALITY))
+        canvas.toBlob(
+          (blob) => {
+            if (blob) resolve(blob)
+            else reject(new Error('blob-failed'))
+          },
+          'image/jpeg',
+          PHOTO_QUALITY,
+        )
       }
       img.src = String(reader.result || '')
     }

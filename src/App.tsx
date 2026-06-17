@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePostHog } from '@posthog/react'
 import rawData from './data/booths.json'
 import type { BoothData } from './types'
 import MapView from './components/MapView'
 import Sidebar from './components/Sidebar'
-import { loadVisit, saveVisit } from './lib/storage'
+import { loadVisit, migratePhotosToIndexedDB, saveVisit } from './lib/storage'
 
 const data = rawData as unknown as BoothData
 
@@ -13,6 +13,10 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [visit, setVisit] = useState<Set<string>>(() => loadVisit())
+
+  useEffect(() => {
+    migratePhotosToIndexedDB()
+  }, [])
 
   const toggleVisit = (id: string) => {
     setVisit((prev) => {
