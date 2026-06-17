@@ -280,13 +280,13 @@ function BoothShape({ b, selected, hovered, visit, onSelect, onHover }: ShapePro
   const more = b.facility ? 0 : allNames.length - shown.length
   const lineCount = Math.max(shown.length + (more > 0 ? 1 : 0), 1)
 
-  const codeFs = 10
+  const codeFs = 14
   const codeLineH = codeFs * 1.25
   const maxLen = Math.max(...shown.map((n) => n.length), more > 0 ? 5 : 1)
   const availH = b.h * 0.9 - codeLineH
   const fsByH = availH > 0 ? availH / lineCount : codeFs
   const fsByW = (b.w * 0.92) / maxLen
-  const nameFs = Math.max(3.5, Math.min(fsByH, fsByW, 14))
+  const nameFs = Math.max(3.5, Math.min(fsByH, fsByW, 20))
   const lineH = nameFs * 1.14
   const totalH = codeLineH + lineCount * lineH
   const top = cy - totalH / 2
