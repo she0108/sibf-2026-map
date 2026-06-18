@@ -202,8 +202,8 @@ body {
   width: 32px;
   height: 32px;
   padding: 0;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: none;
+  background: transparent;
   color: #555;
   font-family: inherit;
   font-size: 16px;
@@ -212,8 +212,8 @@ body {
   cursor: pointer;
 }
 .detail__clear svg {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   display: block;
   margin: auto;
 }
@@ -224,7 +224,6 @@ body {
   stroke-linecap: square;
 }
 .detail__clear:hover {
-  border-color: #000;
   color: #000;
 }
 .detail__primary {
@@ -328,7 +327,7 @@ body {
   flex-shrink: 0;
   height: 30px;
   padding: 0 10px;
-  border: 1px solid #000;
+  border: 1px solid #ddd;
   background: #fff;
   color: #111;
   display: inline-flex;
@@ -339,8 +338,7 @@ body {
   cursor: pointer;
 }
 .memo-photo__add:hover {
-  background: #000;
-  color: #fff;
+  border-color: #000;
 }
 .memo-photo__add input {
   position: absolute;
