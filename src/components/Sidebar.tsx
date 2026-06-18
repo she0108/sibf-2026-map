@@ -256,6 +256,7 @@ function SelectedBooth({
 
     if (files.some((file) => !file.type.startsWith('image/'))) {
       setPhotoError('이미지 파일만 첨부할 수 있어요.')
+      posthog.capture('photo_error', { booth_id: selected.id, reason: 'invalid_type' })
       return
     }
 
@@ -265,6 +266,7 @@ function SelectedBooth({
       const next = [...existing, ...added]
       if (!(await saveMemoPhotos(selected.id, next))) {
         setPhotoError('저장 공간이 부족해요. 다른 부스의 사진을 정리해 주세요.')
+        posthog.capture('photo_error', { booth_id: selected.id, reason: 'quota' })
         return
       }
       setPhotos(next)
@@ -272,6 +274,7 @@ function SelectedBooth({
       setPhotoError('')
     } catch {
       setPhotoError('사진을 불러오지 못했어요.')
+      posthog.capture('photo_error', { booth_id: selected.id, reason: 'load_failed' })
     }
   }
 
@@ -280,6 +283,7 @@ function SelectedBooth({
     await saveMemoPhotos(selected.id, next)
     setPhotos(next)
     setPhotoError('')
+    posthog.capture('photo_removed', { booth_id: selected.id, total: next.length })
   }
 
   return (
@@ -297,7 +301,16 @@ function SelectedBooth({
               {visited ? '★' : '☆'}
             </button>
           </div>
-          <button className="detail__clear" type="button" title="선택 취소" aria-label="선택 취소" onClick={onClearSelect}>
+          <button
+            className="detail__clear"
+            type="button"
+            title="선택 취소"
+            aria-label="선택 취소"
+            onClick={() => {
+              posthog.capture('booth_deselected', { booth_id: selected.id })
+              onClearSelect()
+            }}
+          >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 7L17 17" />
               <path d="M17 7L7 17" />

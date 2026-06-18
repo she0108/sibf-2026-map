@@ -129,10 +129,14 @@ export default function MapView({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId])
 
-  const reset = () => flyTo(zoomIdentity)
+  const reset = () => {
+    posthog.capture('map_zoom_reset')
+    flyTo(zoomIdentity)
+  }
 
   const zoomBy = (factor: number) => {
     if (!svgRef.current || !zoomRef.current) return
+    posthog.capture('map_zoomed', { direction: factor > 1 ? 'in' : 'out' })
     select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy, factor)
   }
 
