@@ -6,17 +6,18 @@ const PHOTO_PREFIX_OLD = 'sibf-memo-photo:'
 const PHOTO_MIGRATED_FLAG = 'sibf-photo-migrated-v1'
 const photoIdbKey = (id: string) => `photo:${id}`
 
-export function loadVisit(): Set<string> {
+export function loadVisitOrder(): string[] {
   try {
-    return new Set(JSON.parse(localStorage.getItem(VISIT_KEY) || '[]'))
+    const parsed = JSON.parse(localStorage.getItem(VISIT_KEY) || '[]')
+    return Array.isArray(parsed) ? parsed.filter((v): v is string => typeof v === 'string') : []
   } catch {
-    return new Set()
+    return []
   }
 }
 
-export function saveVisit(s: Set<string>) {
+export function saveVisitOrder(order: string[]) {
   try {
-    localStorage.setItem(VISIT_KEY, JSON.stringify([...s]))
+    localStorage.setItem(VISIT_KEY, JSON.stringify(order))
   } catch {
     /* ignore */
   }

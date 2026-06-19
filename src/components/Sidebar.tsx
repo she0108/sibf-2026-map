@@ -10,82 +10,140 @@ import { useMemoPhotos } from '../hooks/useMemoPhotos'
 import { useMemoDraft } from '../hooks/useMemoDraft'
 import { useAutosizeTextarea } from '../hooks/useAutosizeTextarea'
 import { useBoothSearch } from '../hooks/useBoothSearch'
+import RouteList from './RouteList'
+
+export type SidebarTab = 'search' | 'route'
 
 interface Props {
   booths: Booth[]
   selected: Booth | null
   visit: Set<string>
+  visitOrder: string[]
+  tab: SidebarTab
+  query: string
+  onTabChange: (tab: SidebarTab) => void
+  onQueryChange: (query: string) => void
   onSelect: (id: string) => void
   onClearSelect: () => void
   onToggleVisit: (id: string) => void
+  onReorderVisit: (from: number, to: number) => void
 }
 
-export default function Sidebar({ booths, selected, visit, onSelect, onClearSelect, onToggleVisit }: Props) {
-  const { query, setQuery, hasQuery, results, allBooths, selectBooth } = useBoothSearch(
+export default function Sidebar({
+  booths,
+  selected,
+  visit,
+  visitOrder,
+  tab,
+  query,
+  onTabChange,
+  onQueryChange,
+  onSelect,
+  onClearSelect,
+  onToggleVisit,
+  onReorderVisit,
+}: Props) {
+  const { hasQuery, results, allBooths, selectBooth } = useBoothSearch(
     booths,
-    selected,
+    query,
+    onQueryChange,
     onSelect,
   )
-
   return (
     <aside className="side">
       <div className="side__head">
         <h1 className="side__title">2026 서울국제도서전 부스 배치도</h1>
       </div>
 
-      {!selected && (
-        <div className="side__search">
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="출판사명 / 부스번호 검색"
+      <div className="side__tabs" role="tablist" aria-label="사이드바 메뉴">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'search'}
+          className={'side__tab' + (tab === 'search' ? ' on' : '')}
+          onClick={() => onTabChange('search')}
+        >
+          부스
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'route'}
+          className={'side__tab' + (tab === 'route' ? ' on' : '')}
+          onClick={() => onTabChange('route')}
+        >
+          동선 <span className="side__tab-count">{visitOrder.length}</span>
+        </button>
+      </div>
+
+      {tab === 'search' ? (
+        <>
+          {!selected && (
+            <div className="side__search">
+              <input
+                value={query}
+                onChange={(e) => onQueryChange(e.target.value)}
+                placeholder="출판사명 / 부스번호 검색"
+              />
+              <svg className="side__search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="6" />
+                <path d="M15.5 15.5L20 20" />
+              </svg>
+            </div>
+          )}
+
+          {hasQuery && (
+            <ul className="side__results">
+              {results.length === 0 && <li className="side__empty">검색 결과 없음</li>}
+              {results.map((r, i) => (
+                <li key={r.id + i} className="result" onClick={() => selectBooth(r.id, 'search')}>
+                  <span className="result__name">{r.label}</span>
+                  <span className="result__meta">{r.meta}</span>
+                  <button
+                    className={'star' + (visit.has(r.id) ? ' on' : '')}
+                    title="가고 싶은 부스"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onToggleVisit(r.id)
+                    }}
+                  >
+                    {visit.has(r.id) ? '★' : '☆'}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {selected && !hasQuery && (
+            <SelectedBooth
+              key={selected.id}
+              selected={selected}
+              visit={visit}
+              onClearSelect={onClearSelect}
+              onToggleVisit={onToggleVisit}
+            />
+          )}
+
+          {!selected && !hasQuery && (
+            <div className="side__all">
+              <BoothList
+                booths={allBooths}
+                visit={visit}
+                onSelect={(id) => selectBooth(id, 'list')}
+                onToggleVisit={onToggleVisit}
+              />
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="side__all">
+          <RouteList
+            booths={booths}
+            order={visitOrder}
+            onSelect={(id) => selectBooth(id, 'list')}
+            onReorder={onReorderVisit}
           />
-          <svg className="side__search-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="6" />
-            <path d="M15.5 15.5L20 20" />
-          </svg>
         </div>
-      )}
-
-      {hasQuery && (
-        <ul className="side__results">
-          {results.length === 0 && <li className="side__empty">검색 결과 없음</li>}
-          {results.map((r, i) => (
-            <li key={r.id + i} className="result" onClick={() => selectBooth(r.id, 'search')}>
-              <span className="result__name">{r.label}</span>
-              <span className="result__meta">{r.meta}</span>
-              <button
-                className={'star' + (visit.has(r.id) ? ' on' : '')}
-                title="가고 싶은 부스"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  onToggleVisit(r.id)
-                }}
-              >
-                {visit.has(r.id) ? '★' : '☆'}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {selected && !hasQuery && (
-        <SelectedBooth
-          key={selected.id}
-          selected={selected}
-          visit={visit}
-          onClearSelect={onClearSelect}
-          onToggleVisit={onToggleVisit}
-        />
-      )}
-
-      {!selected && !hasQuery && (
-        <BoothList
-          booths={allBooths}
-          visit={visit}
-          onSelect={(id) => selectBooth(id, 'list')}
-          onToggleVisit={onToggleVisit}
-        />
       )}
     </aside>
   )
@@ -103,27 +161,24 @@ function BoothList({
   onToggleVisit: (id: string) => void
 }) {
   return (
-    <div className="side__all">
-      <div className="side__section-title">전체 부스</div>
-      <ul className="side__results">
-        {booths.map((b) => (
-          <li key={b.id} className="result" onClick={() => onSelect(b.id)}>
-            <span className="result__name">{b.label}</span>
-            <span className="result__meta">{b.meta}</span>
-            <button
-              className={'star' + (visit.has(b.id) ? ' on' : '')}
-              title="가고 싶은 부스"
-              onClick={(e) => {
-                e.stopPropagation()
-                onToggleVisit(b.id)
-              }}
-            >
-              {visit.has(b.id) ? '★' : '☆'}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="side__results">
+      {booths.map((b) => (
+        <li key={b.id} className="result" onClick={() => onSelect(b.id)}>
+          <span className="result__name">{b.label}</span>
+          <span className="result__meta">{b.meta}</span>
+          <button
+            className={'star' + (visit.has(b.id) ? ' on' : '')}
+            title="가고 싶은 부스"
+            onClick={(e) => {
+              e.stopPropagation()
+              onToggleVisit(b.id)
+            }}
+          >
+            {visit.has(b.id) ? '★' : '☆'}
+          </button>
+        </li>
+      ))}
+    </ul>
   )
 }
 

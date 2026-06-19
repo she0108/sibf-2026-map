@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { usePostHog } from '@posthog/react'
 import { select } from 'd3-selection'
 import 'd3-transition'
@@ -50,6 +50,8 @@ interface Props {
   selectedId: string | null
   hoveredId: string | null
   visit: Set<string>
+  visitOrder: string[]
+  resetViewKey: number
   onSelect: (id: string) => void
   onHover: (id: string | null) => void
 }
@@ -60,6 +62,8 @@ export default function MapView({
   selectedId,
   hoveredId,
   visit,
+  visitOrder,
+  resetViewKey,
   onSelect,
   onHover,
 }: Props) {
@@ -76,6 +80,16 @@ export default function MapView({
     w: Math.max(viewBox.w, MIN_CANVAS.w),
     h: Math.max(viewBox.h, MIN_CANVAS.h),
   }
+
+  const routeCenters = useMemo(() => {
+    const byId = new Map(booths.map((b) => [b.id, b]))
+    return visitOrder
+      .map((id) => {
+        const b = byId.get(id)
+        return b ? { cx: b.x + b.w / 2, cy: b.y + b.h / 2 } : null
+      })
+      .filter((c): c is { cx: number; cy: number } => c !== null)
+  }, [booths, visitOrder])
 
   useEffect(() => {
     const sel = select(svgRef.current as SVGSVGElement)
@@ -114,6 +128,11 @@ export default function MapView({
     flyTo(zoomIdentity.translate(tx, ty).scale(k))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId])
+
+  useEffect(() => {
+    if (resetViewKey === 0) return
+    flyTo(zoomIdentity)
+  }, [resetViewKey])
 
   const reset = () => {
     posthog.capture('map_zoom_reset')
@@ -168,6 +187,7 @@ export default function MapView({
               onHover={onHover}
             />
           ))}
+          <RouteOverlay centers={routeCenters} />
           <FacilityMarkers />
         </g>
       </svg>
@@ -187,6 +207,52 @@ function MapAnnotations() {
       {ARROWS.map((a, i) => (
         <Arrow key={i} {...a} />
       ))}
+    </g>
+  )
+}
+
+function RouteOverlay({ centers }: { centers: { cx: number; cy: number }[] }) {
+  if (centers.length < 2) return null
+  const head = 32
+  const spread = 0.5
+  return (
+    <g
+      pointerEvents="none"
+      fill="none"
+      stroke={FAVORITE}
+      strokeWidth={4}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {centers.slice(1).map((c, i) => {
+        const p = centers[i]
+        const dx = c.cx - p.cx
+        const dy = c.cy - p.cy
+        const dist = Math.hypot(dx, dy)
+        if (dist === 0) return null
+        const ux = dx / dist
+        const uy = dy / dist
+        const gap = 60
+        // skip if booths are too close to leave room for a line + arrowhead
+        if (dist <= gap * 2 + head) return null
+        const sx = p.cx + ux * gap
+        const sy = p.cy + uy * gap
+        const ex = c.cx - ux * gap
+        const ey = c.cy - uy * gap
+        const angle = Math.atan2(dy, dx)
+        const a1 = angle + Math.PI - spread
+        const a2 = angle + Math.PI + spread
+        const chevron =
+          `M${ex + head * Math.cos(a1)} ${ey + head * Math.sin(a1)}` +
+          ` L${ex} ${ey}` +
+          ` L${ex + head * Math.cos(a2)} ${ey + head * Math.sin(a2)}`
+        return (
+          <g key={i}>
+            <line x1={sx} y1={sy} x2={ex} y2={ey} />
+            <path d={chevron} />
+          </g>
+        )
+      })}
     </g>
   )
 }
