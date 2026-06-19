@@ -52,6 +52,7 @@ interface Props {
   visit: Set<string>
   visitOrder: string[]
   resetViewKey: number
+  showRoute: boolean
   onSelect: (id: string) => void
   onHover: (id: string | null) => void
 }
@@ -64,6 +65,7 @@ export default function MapView({
   visit,
   visitOrder,
   resetViewKey,
+  showRoute,
   onSelect,
   onHover,
 }: Props) {
@@ -187,7 +189,7 @@ export default function MapView({
               onHover={onHover}
             />
           ))}
-          <RouteOverlay centers={routeCenters} />
+          {showRoute && <RouteOverlay centers={routeCenters} />}
           <FacilityMarkers />
         </g>
       </svg>

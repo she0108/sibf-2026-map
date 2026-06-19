@@ -559,7 +559,7 @@ body {
   stroke-linecap: square;
 }
 
-.mobile-course-trigger,
+.mobile-course-controls,
 .mobile-course-layer {
   display: none;
 }
@@ -592,45 +592,36 @@ body {
     display: none;
   }
 
-  .mobile-course-trigger {
+  .mobile-course-controls {
     position: fixed;
     left: 16px;
     bottom: max(16px, env(safe-area-inset-bottom));
     z-index: 10;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 7px;
-    height: 44px;
-    padding: 0 12px;
+    gap: 8px;
+  }
+  .mobile-course-trigger,
+  .mobile-route-toggle {
+    height: 38px;
+    border: 1px solid #000;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .mobile-course-trigger {
+    padding: 0 10px;
     border: 1px solid #000;
     background: #000;
     color: #fff;
-    font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
-    cursor: pointer;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
   }
-  .mobile-course-trigger svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.7;
-    stroke-linecap: round;
-  }
-  .mobile-course-trigger__count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 6px;
-    border-radius: 10px;
+  .mobile-route-toggle {
+    padding: 0 10px;
     background: #fff;
     color: #111;
-    font-size: 11px;
-    line-height: 1;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   .mobile-course-layer {

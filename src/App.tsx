@@ -19,6 +19,7 @@ export default function App() {
   const [boothQuery, setBoothQuery] = useState('')
   const [mobileCourseOpen, setMobileCourseOpen] = useState(false)
   const [mapResetKey, setMapResetKey] = useState(0)
+  const [routeVisible, setRouteVisible] = useState(false)
   const [visitOrder, setVisitOrder] = useState<string[]>(() => loadVisitOrder())
   const visit = useMemo(() => new Set(visitOrder), [visitOrder])
 
@@ -84,6 +85,7 @@ export default function App() {
         visit={visit}
         visitOrder={visitOrder}
         resetViewKey={mapResetKey}
+        showRoute={routeVisible}
         onSelect={selectBooth}
         onHover={setHoveredId}
       />
@@ -91,8 +93,15 @@ export default function App() {
         booths={data.booths}
         order={visitOrder}
         open={mobileCourseOpen}
+        routeVisible={routeVisible}
         onOpen={openMobileCourse}
         onClose={closeMobileCourse}
+        onToggleRoute={() => {
+          setRouteVisible((visible) => {
+            posthog.capture('route_visibility_toggled', { visible: !visible })
+            return !visible
+          })
+        }}
         onSelect={(id) => {
           posthog.capture('booth_selected', { booth_id: id, source: 'mobile_course' })
           selectBooth(id)

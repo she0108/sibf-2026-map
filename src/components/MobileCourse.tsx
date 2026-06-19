@@ -6,8 +6,10 @@ interface Props {
   booths: Booth[]
   order: string[]
   open: boolean
+  routeVisible: boolean
   onOpen: () => void
   onClose: () => void
+  onToggleRoute: () => void
   onSelect: (id: string) => void
   onReorder: (from: number, to: number) => void
 }
@@ -16,8 +18,10 @@ export default function MobileCourse({
   booths,
   order,
   open,
+  routeVisible,
   onOpen,
   onClose,
+  onToggleRoute,
   onSelect,
   onReorder,
 }: Props) {
@@ -41,23 +45,27 @@ export default function MobileCourse({
 
   return (
     <>
-      <button
-        ref={triggerRef}
-        type="button"
-        className="mobile-course-trigger"
-        aria-expanded={open}
-        aria-controls="mobile-course-sheet"
-        onClick={onOpen}
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="5" cy="7" r="1.5" />
-          <circle cx="5" cy="17" r="1.5" />
-          <path d="M9 7H19" />
-          <path d="M9 17H19" />
-        </svg>
-        <span>동선</span>
-        <span className="mobile-course-trigger__count">{order.length}</span>
-      </button>
+      <div className="mobile-course-controls">
+        <button
+          ref={triggerRef}
+          type="button"
+          className="mobile-course-trigger"
+          aria-expanded={open}
+          aria-controls="mobile-course-sheet"
+          onClick={onOpen}
+        >
+          동선 짜기
+        </button>
+        <button
+          type="button"
+          aria-pressed={routeVisible}
+          aria-label={routeVisible ? '동선 숨기기' : '동선 표시'}
+          className="mobile-route-toggle"
+          onClick={onToggleRoute}
+        >
+          {routeVisible ? '동선 숨김' : '동선 표시'}
+        </button>
+      </div>
 
       {open && (
         <div className="mobile-course-layer">
