@@ -212,12 +212,30 @@ function SelectedBooth({
     }
   }, [selected.id])
 
-  const photoUrls = useMemo(() => photos.map((b) => URL.createObjectURL(b)), [photos])
+  const urlCacheRef = useRef<Map<Blob, string>>(new Map())
+  const [photoUrls, setPhotoUrls] = useState<string[]>([])
+  useEffect(() => {
+    const cache = urlCacheRef.current
+    const next = new Map<Blob, string>()
+    const urls: string[] = []
+    for (const blob of photos) {
+      const url = cache.get(blob) ?? URL.createObjectURL(blob)
+      next.set(blob, url)
+      urls.push(url)
+    }
+    cache.forEach((url, blob) => {
+      if (!next.has(blob)) URL.revokeObjectURL(url)
+    })
+    urlCacheRef.current = next
+    setPhotoUrls(urls)
+  }, [photos])
   useEffect(() => {
     return () => {
-      photoUrls.forEach((u) => URL.revokeObjectURL(u))
+      const cache = urlCacheRef.current
+      cache.forEach((url) => URL.revokeObjectURL(url))
+      cache.clear()
     }
-  }, [photoUrls])
+  }, [])
   const visited = visit.has(selected.id)
   const primary = displayName(selected.exhibitors[0]) || selected.id
   const extraCount = Math.max(selected.exhibitors.length - 1, 0)
@@ -262,8 +280,7 @@ function SelectedBooth({
 
     try {
       const added = await Promise.all(files.map((file) => resizeImage(file)))
-      const existing = await loadMemoPhotos(selected.id)
-      const next = [...existing, ...added]
+      const next = [...photos, ...added]
       if (!(await saveMemoPhotos(selected.id, next))) {
         setPhotoError('저장 공간이 부족해요. 다른 부스의 사진을 정리해 주세요.')
         posthog.capture('photo_error', { booth_id: selected.id, reason: 'quota' })
