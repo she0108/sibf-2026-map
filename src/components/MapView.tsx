@@ -16,6 +16,7 @@ import {
   HIGHLIGHT,
   HIGHLIGHT_FILL,
   INK,
+  isDark,
   MORE_MUTED,
   NAME_MUTED,
   ON_DARK,
@@ -41,21 +42,6 @@ type ZoomFilterEvent = Event & {
   touches?: TouchList
   button?: number
   ctrlKey?: boolean
-}
-
-// 배경색이 어두우면 텍스트 색을 흰색으로 자동 전환한다.
-function isDark(c?: string): boolean {
-  if (!c) return false
-  const v = c.trim().toLowerCase()
-  if (v === 'black') return true
-  let hex = v.startsWith('#') ? v.slice(1) : v
-  if (hex.length === 3) hex = hex.split('').map((x) => x + x).join('')
-  if (hex.length !== 6) return false
-  const r = parseInt(hex.slice(0, 2), 16)
-  const g = parseInt(hex.slice(2, 4), 16)
-  const b = parseInt(hex.slice(4, 6), 16)
-  if ([r, g, b].some(Number.isNaN)) return false
-  return 0.299 * r + 0.587 * g + 0.114 * b < 140
 }
 
 interface Props {
