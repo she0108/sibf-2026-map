@@ -37,11 +37,7 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
       for (const e of b.exhibitors) {
         const nm = displayName(e)
         if (!nm) continue
-        if (
-          nm.toLowerCase().includes(q) ||
-          e.en.toLowerCase().includes(q) ||
-          b.id.toLowerCase().includes(q)
-        ) {
+        if (nm.toLowerCase().includes(q) || e.en.toLowerCase().includes(q) || b.id.toLowerCase().includes(q)) {
           out.push({ id: b.id, label: nm, meta: b.id })
           if (out.length >= 60) return out
         }
@@ -73,11 +69,11 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
     return () => {
       if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
     }
-  }, [query, results.length, hasQuery])
+  }, [query, results.length, hasQuery, posthog])
 
   useEffect(() => {
     if (selected) setQuery('')
-  }, [selected?.id])
+  }, [selected])
 
   const selectBooth = (id: string, source: 'search' | 'list') => {
     posthog.capture('booth_selected', { booth_id: id, source })
@@ -88,7 +84,7 @@ export default function Sidebar({ booths, selected, visit, onSelect, onClearSele
   return (
     <aside className="side">
       <div className="side__head">
-        <h1 className="side__title">2026 서울국제도서전 부스배치도</h1>
+        <h1 className="side__title">2026 서울국제도서전 부스 배치도</h1>
       </div>
 
       {!selected && (
@@ -199,26 +195,17 @@ function SelectedBooth({
   const posthog = usePostHog()
   const [memo, setMemo] = useState(() => loadMemo(selected.id))
   const [photos, setPhotos] = useState<Blob[]>([])
+  const [photoUrls, setPhotoUrls] = useState<string[]>([])
   const [photoError, setPhotoError] = useState('')
   const [listOpen, setListOpen] = useState(false)
 
-  useEffect(() => {
-    let cancelled = false
-    loadMemoPhotos(selected.id).then((blobs) => {
-      if (!cancelled) setPhotos(blobs)
-    })
-    return () => {
-      cancelled = true
-    }
-  }, [selected.id])
-
   const urlCacheRef = useRef<Map<Blob, string>>(new Map())
-  const [photoUrls, setPhotoUrls] = useState<string[]>([])
-  useEffect(() => {
+
+  const commitPhotos = (blobs: Blob[]) => {
     const cache = urlCacheRef.current
     const next = new Map<Blob, string>()
     const urls: string[] = []
-    for (const blob of photos) {
+    for (const blob of blobs) {
       const url = cache.get(blob) ?? URL.createObjectURL(blob)
       next.set(blob, url)
       urls.push(url)
@@ -227,8 +214,20 @@ function SelectedBooth({
       if (!next.has(blob)) URL.revokeObjectURL(url)
     })
     urlCacheRef.current = next
+    setPhotos(blobs)
     setPhotoUrls(urls)
-  }, [photos])
+  }
+
+  useEffect(() => {
+    let cancelled = false
+    loadMemoPhotos(selected.id).then((blobs) => {
+      if (!cancelled) commitPhotos(blobs)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [selected.id])
+
   useEffect(() => {
     return () => {
       const cache = urlCacheRef.current
@@ -236,6 +235,7 @@ function SelectedBooth({
       cache.clear()
     }
   }, [])
+
   const visited = visit.has(selected.id)
   const primary = displayName(selected.exhibitors[0]) || selected.id
   const extraCount = Math.max(selected.exhibitors.length - 1, 0)
@@ -286,7 +286,7 @@ function SelectedBooth({
         posthog.capture('photo_error', { booth_id: selected.id, reason: 'quota' })
         return
       }
-      setPhotos(next)
+      commitPhotos(next)
       posthog.capture('photo_added', { booth_id: selected.id, count: files.length, total: next.length })
       setPhotoError('')
     } catch {
@@ -298,7 +298,7 @@ function SelectedBooth({
   const onRemovePhoto = async (index: number) => {
     const next = photos.filter((_, i) => i !== index)
     await saveMemoPhotos(selected.id, next)
-    setPhotos(next)
+    commitPhotos(next)
     setPhotoError('')
     posthog.capture('photo_removed', { booth_id: selected.id, total: next.length })
   }
