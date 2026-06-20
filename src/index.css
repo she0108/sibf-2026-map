@@ -548,6 +548,10 @@ body {
   background: #000;
   color: #fff;
 }
+.map__ctl button.on {
+  background: #000;
+  color: #fff;
+}
 .map__ctl svg {
   width: 18px;
   height: 18px;
@@ -585,6 +589,9 @@ body {
   .map {
     flex: 1;
     min-height: 0;
+  }
+  .map__route-control {
+    display: none;
   }
   .side__head,
   .side__tabs,

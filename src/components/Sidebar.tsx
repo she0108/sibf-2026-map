@@ -11,6 +11,7 @@ import { useMemoDraft } from '../hooks/useMemoDraft'
 import { useAutosizeTextarea } from '../hooks/useAutosizeTextarea'
 import { useBoothSearch } from '../hooks/useBoothSearch'
 import RouteList from './RouteList'
+import { captureEvent, type BoothSaveSource, type RouteSurface } from '../lib/analytics'
 
 export type SidebarTab = 'search' | 'route'
 
@@ -25,8 +26,8 @@ interface Props {
   onQueryChange: (query: string) => void
   onSelect: (id: string) => void
   onClearSelect: () => void
-  onToggleVisit: (id: string) => void
-  onReorderVisit: (from: number, to: number) => void
+  onToggleVisit: (id: string, source: BoothSaveSource) => void
+  onReorderVisit: (from: number, to: number, surface: RouteSurface) => void
 }
 
 export default function Sidebar({
@@ -96,7 +97,11 @@ export default function Sidebar({
             <ul className="side__results">
               {results.length === 0 && <li className="side__empty">검색 결과 없음</li>}
               {results.map((r, i) => (
-                <li key={r.id + i} className="result" onClick={() => selectBooth(r.id, 'search')}>
+                <li
+                  key={r.id + i}
+                  className="result"
+                  onClick={() => selectBooth(r.id, 'search_results')}
+                >
                   <span className="result__name">{r.label}</span>
                   <span className="result__meta">{r.meta}</span>
                   <button
@@ -104,7 +109,7 @@ export default function Sidebar({
                     title="가고 싶은 부스"
                     onClick={(e) => {
                       e.stopPropagation()
-                      onToggleVisit(r.id)
+                      onToggleVisit(r.id, 'search_results')
                     }}
                   >
                     {visit.has(r.id) ? '★' : '☆'}
@@ -129,7 +134,7 @@ export default function Sidebar({
               <BoothList
                 booths={allBooths}
                 visit={visit}
-                onSelect={(id) => selectBooth(id, 'list')}
+                onSelect={(id) => selectBooth(id, 'booth_list')}
                 onToggleVisit={onToggleVisit}
               />
             </div>
@@ -140,7 +145,8 @@ export default function Sidebar({
           <RouteList
             booths={booths}
             order={visitOrder}
-            onSelect={(id) => selectBooth(id, 'list')}
+            surface="sidebar"
+            onSelect={(id) => selectBooth(id, 'route_sidebar', visitOrder.indexOf(id) + 1)}
             onReorder={onReorderVisit}
           />
         </div>
@@ -158,7 +164,7 @@ function BoothList({
   booths: BoothResult[]
   visit: Set<string>
   onSelect: (id: string) => void
-  onToggleVisit: (id: string) => void
+  onToggleVisit: (id: string, source: BoothSaveSource) => void
 }) {
   return (
     <ul className="side__results">
@@ -171,7 +177,7 @@ function BoothList({
             title="가고 싶은 부스"
             onClick={(e) => {
               e.stopPropagation()
-              onToggleVisit(b.id)
+              onToggleVisit(b.id, 'booth_list')
             }}
           >
             {visit.has(b.id) ? '★' : '☆'}
@@ -191,7 +197,7 @@ function SelectedBooth({
   selected: Booth
   visit: Set<string>
   onClearSelect: () => void
-  onToggleVisit: (id: string) => void
+  onToggleVisit: (id: string, source: BoothSaveSource) => void
 }) {
   const posthog = usePostHog()
   const { memo, onMemoChange } = useMemoDraft(selected.id)
@@ -212,7 +218,7 @@ function SelectedBooth({
 
     if (files.some((file) => !file.type.startsWith('image/'))) {
       setPhotoError('이미지 파일만 첨부할 수 있어요.')
-      posthog.capture('photo_error', { booth_id: selected.id, reason: 'invalid_type' })
+      captureEvent(posthog, 'booth_photo_failed', { booth_id: selected.id, reason: 'invalid_type' })
       return
     }
 
@@ -221,24 +227,41 @@ function SelectedBooth({
       const next = [...photos, ...added]
       if (!(await saveMemoPhotos(selected.id, next))) {
         setPhotoError('저장 공간이 부족해요. 다른 부스의 사진을 정리해 주세요.')
-        posthog.capture('photo_error', { booth_id: selected.id, reason: 'quota' })
+        captureEvent(posthog, 'booth_photo_failed', { booth_id: selected.id, reason: 'quota' })
         return
       }
       commitPhotos(next)
-      posthog.capture('photo_added', { booth_id: selected.id, count: files.length, total: next.length })
+      captureEvent(posthog, 'booth_photo_changed', {
+        booth_id: selected.id,
+        action: 'add',
+        photo_count: next.length,
+        changed_count: files.length,
+      })
       setPhotoError('')
     } catch {
       setPhotoError('사진을 불러오지 못했어요.')
-      posthog.capture('photo_error', { booth_id: selected.id, reason: 'load_failed' })
+      captureEvent(posthog, 'booth_photo_failed', { booth_id: selected.id, reason: 'load_failed' })
     }
   }
 
   const onRemovePhoto = async (index: number) => {
     const next = photos.filter((_, i) => i !== index)
-    await saveMemoPhotos(selected.id, next)
+    if (!(await saveMemoPhotos(selected.id, next))) {
+      setPhotoError('저장 공간에서 사진을 삭제하지 못했어요.')
+      captureEvent(posthog, 'booth_photo_failed', {
+        booth_id: selected.id,
+        reason: 'storage_failure',
+      })
+      return
+    }
     commitPhotos(next)
     setPhotoError('')
-    posthog.capture('photo_removed', { booth_id: selected.id, total: next.length })
+    captureEvent(posthog, 'booth_photo_changed', {
+      booth_id: selected.id,
+      action: 'remove',
+      photo_count: next.length,
+      changed_count: 1,
+    })
   }
 
   return (
@@ -251,7 +274,7 @@ function SelectedBooth({
               className={'detail__star' + (visited ? ' on' : '')}
               title={visited ? '가고 싶은 부스 해제' : '가고 싶은 부스로 표시'}
               aria-label={visited ? '가고 싶은 부스 해제' : '가고 싶은 부스로 표시'}
-              onClick={() => onToggleVisit(selected.id)}
+              onClick={() => onToggleVisit(selected.id, 'booth_detail')}
             >
               {visited ? '★' : '☆'}
             </button>
@@ -262,7 +285,6 @@ function SelectedBooth({
             title="선택 취소"
             aria-label="선택 취소"
             onClick={() => {
-              posthog.capture('booth_deselected', { booth_id: selected.id })
               onClearSelect()
             }}
           >

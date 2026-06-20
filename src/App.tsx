@@ -8,6 +8,12 @@ import type { SidebarTab } from './components/Sidebar'
 import MobileCourse from './components/MobileCourse'
 import { loadVisitOrder, migratePhotosToIndexedDB, saveVisitOrder } from './lib/storage'
 import { moveItem } from './lib/route'
+import {
+  captureEvent,
+  type BoothSaveSource,
+  type RouteSurface,
+  type RouteToggleSurface,
+} from './lib/analytics'
 
 const data = rawData as unknown as BoothData
 
@@ -27,22 +33,32 @@ export default function App() {
     migratePhotosToIndexedDB()
   }, [])
 
-  const toggleVisit = (id: string) => {
+  const toggleVisit = (id: string, source: BoothSaveSource) => {
     setVisitOrder((prev) => {
       const has = prev.includes(id)
       const next = has ? prev.filter((x) => x !== id) : [...prev, id]
       saveVisitOrder(next)
-      posthog.capture('visit_toggled', { booth_id: id, action: has ? 'remove' : 'add' })
+      captureEvent(posthog, 'booth_save_changed', {
+        booth_id: id,
+        action: has ? 'remove' : 'add',
+        source,
+        saved_count: next.length,
+      })
       return next
     })
   }
 
-  const reorderVisit = (from: number, to: number) => {
+  const reorderVisit = (from: number, to: number, surface: RouteSurface) => {
     setVisitOrder((prev) => {
       const next = moveItem(prev, from, to)
       if (next === prev) return prev
       saveVisitOrder(next)
-      posthog.capture('route_reordered', { method: 'drag' })
+      captureEvent(posthog, 'route_reordered', {
+        surface,
+        saved_count: next.length,
+        from_position: from + 1,
+        to_position: to + 1,
+      })
       return next
     })
   }
@@ -58,8 +74,19 @@ export default function App() {
     setSelectedId(null)
     setMapResetKey((key) => key + 1)
     setMobileCourseOpen(true)
-  }, [])
+    captureEvent(posthog, 'route_viewed', { surface: 'mobile', saved_count: visitOrder.length })
+  }, [posthog, visitOrder.length])
   const closeMobileCourse = useCallback(() => setMobileCourseOpen(false), [])
+  const toggleRouteVisibility = (surface: RouteToggleSurface) => {
+    setRouteVisible((visible) => {
+      captureEvent(posthog, 'route_map_visibility_changed', {
+        visible: !visible,
+        saved_count: visitOrder.length,
+        surface,
+      })
+      return !visible
+    })
+  }
 
   return (
     <div className={'app' + (mobileCourseOpen ? ' mobile-course-open' : '')}>
@@ -70,7 +97,15 @@ export default function App() {
         visitOrder={visitOrder}
         tab={sidebarTab}
         query={boothQuery}
-        onTabChange={setSidebarTab}
+        onTabChange={(tab) => {
+          setSidebarTab(tab)
+          if (tab === 'route' && sidebarTab !== 'route') {
+            captureEvent(posthog, 'route_viewed', {
+              surface: 'sidebar',
+              saved_count: visitOrder.length,
+            })
+          }
+        }}
         onQueryChange={setBoothQuery}
         onSelect={selectBooth}
         onClearSelect={() => setSelectedId(null)}
@@ -86,6 +121,7 @@ export default function App() {
         visitOrder={visitOrder}
         resetViewKey={mapResetKey}
         showRoute={routeVisible}
+        onToggleRoute={() => toggleRouteVisibility('desktop_map')}
         onSelect={selectBooth}
         onHover={setHoveredId}
       />
@@ -96,14 +132,13 @@ export default function App() {
         routeVisible={routeVisible}
         onOpen={openMobileCourse}
         onClose={closeMobileCourse}
-        onToggleRoute={() => {
-          setRouteVisible((visible) => {
-            posthog.capture('route_visibility_toggled', { visible: !visible })
-            return !visible
-          })
-        }}
+        onToggleRoute={() => toggleRouteVisibility('mobile_controls')}
         onSelect={(id) => {
-          posthog.capture('booth_selected', { booth_id: id, source: 'mobile_course' })
+          captureEvent(posthog, 'booth_viewed', {
+            booth_id: id,
+            source: 'route_mobile',
+            position: visitOrder.indexOf(id) + 1,
+          })
           selectBooth(id)
         }}
         onReorder={reorderVisit}

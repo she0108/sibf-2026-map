@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react'
 import type { Booth } from '../types'
+import type { RouteSurface } from '../lib/analytics'
 import RouteList from './RouteList'
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
   onClose: () => void
   onToggleRoute: () => void
   onSelect: (id: string) => void
-  onReorder: (from: number, to: number) => void
+  onReorder: (from: number, to: number, surface: RouteSurface) => void
 }
 
 export default function MobileCourse({
@@ -104,6 +105,7 @@ export default function MobileCourse({
               booths={booths}
               order={order}
               showInstruction={false}
+              surface="mobile"
               onSelect={(id) => {
                 onClose()
                 onSelect(id)

@@ -2,19 +2,22 @@ import { DragDropProvider } from '@dnd-kit/react'
 import { isSortable, useSortable } from '@dnd-kit/react/sortable'
 import type { Booth } from '../types'
 import { displayName } from '../types'
+import type { RouteSurface } from '../lib/analytics'
 
 interface Props {
   booths: Booth[]
   order: string[]
   showInstruction?: boolean
+  surface: RouteSurface
   onSelect: (id: string) => void
-  onReorder: (from: number, to: number) => void
+  onReorder: (from: number, to: number, surface: RouteSurface) => void
 }
 
 export default function RouteList({
   booths,
   order,
   showInstruction = true,
+  surface,
   onSelect,
   onReorder,
 }: Props) {
@@ -30,7 +33,7 @@ export default function RouteList({
         if (event.canceled) return
         const { source } = event.operation
         if (isSortable(source) && source.initialIndex !== source.index) {
-          onReorder(source.initialIndex, source.index)
+          onReorder(source.initialIndex, source.index, surface)
         }
       }}
     >

@@ -6,6 +6,7 @@ import { zoom, zoomIdentity } from 'd3-zoom'
 import type { D3ZoomEvent, ZoomBehavior, ZoomTransform } from 'd3-zoom'
 import type { Booth } from '../types'
 import { displayName } from '../types'
+import { captureEvent } from '../lib/analytics'
 import {
   ARROW,
   BOOTH_COLORS,
@@ -53,6 +54,7 @@ interface Props {
   visitOrder: string[]
   resetViewKey: number
   showRoute: boolean
+  onToggleRoute: () => void
   onSelect: (id: string) => void
   onHover: (id: string | null) => void
 }
@@ -66,12 +68,13 @@ export default function MapView({
   visitOrder,
   resetViewKey,
   showRoute,
+  onToggleRoute,
   onSelect,
   onHover,
 }: Props) {
   const posthog = usePostHog()
   const handleSelect = (id: string) => {
-    posthog.capture('booth_selected', { booth_id: id, source: 'map' })
+    captureEvent(posthog, 'booth_viewed', { booth_id: id, source: 'map' })
     onSelect(id)
   }
 
@@ -137,13 +140,15 @@ export default function MapView({
   }, [resetViewKey])
 
   const reset = () => {
-    posthog.capture('map_zoom_reset')
+    captureEvent(posthog, 'map_control_used', { control: 'reset' })
     flyTo(zoomIdentity)
   }
 
   const zoomBy = (factor: number) => {
     if (!svgRef.current || !zoomRef.current) return
-    posthog.capture('map_zoomed', { direction: factor > 1 ? 'in' : 'out' })
+    captureEvent(posthog, 'map_control_used', {
+      control: factor > 1 ? 'zoom_in' : 'zoom_out',
+    })
     select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy, factor)
   }
 
@@ -167,6 +172,20 @@ export default function MapView({
             <path d="M15 4H20V9" />
             <path d="M20 15V20H15" />
             <path d="M9 20H4V15" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          className={'map__route-control' + (showRoute ? ' on' : '')}
+          aria-pressed={showRoute}
+          aria-label={showRoute ? '동선 숨기기' : '동선 표시'}
+          title={showRoute ? '동선 숨기기' : '동선 표시'}
+          onClick={onToggleRoute}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="6" cy="17" r="2" />
+            <circle cx="18" cy="7" r="2" />
+            <path d="M8 16C11 15 10 9 16 8" />
           </svg>
         </button>
       </div>

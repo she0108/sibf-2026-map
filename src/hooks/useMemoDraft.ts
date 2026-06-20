@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { usePostHog } from '@posthog/react'
 import { loadMemo, saveMemo } from '../lib/storage'
+import { captureEvent } from '../lib/analytics'
 
 export function useMemoDraft(boothId: string) {
   const posthog = usePostHog()
@@ -18,7 +19,11 @@ export function useMemoDraft(boothId: string) {
     saveMemo(boothId, v)
     if (timerRef.current) clearTimeout(timerRef.current)
     timerRef.current = setTimeout(() => {
-      posthog.capture('memo_saved', { booth_id: boothId })
+      captureEvent(posthog, 'booth_memo_saved', {
+        booth_id: boothId,
+        memo_length: v.trim().length,
+        has_content: Boolean(v.trim()),
+      })
     }, 1500)
   }
 
