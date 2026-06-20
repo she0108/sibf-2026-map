@@ -39,7 +39,7 @@ export default function RouteList({
     >
       <div className="route-list">
         {showInstruction && (
-          <div className="side__section-title">방문 순서 (핸들을 드래그해 이동)</div>
+          <div className="side__section-title">드래그하여 순서 바꾸기</div>
         )}
         <ul className="side__results">
           {order.map((id, index) => {

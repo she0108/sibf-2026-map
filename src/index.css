@@ -562,6 +562,22 @@ body {
   stroke-width: 2;
   stroke-linecap: square;
 }
+.map__ctl .map__route-control {
+  width: auto;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.map__ctl .map__route-control svg {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
 
 .mobile-course-controls,
 .mobile-course-layer {

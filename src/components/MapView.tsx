@@ -187,6 +187,7 @@ export default function MapView({
             <circle cx="18" cy="7" r="2" />
             <path d="M8 16C11 15 10 9 16 8" />
           </svg>
+          <span>{showRoute ? '동선 숨김' : '동선 표시'}</span>
         </button>
       </div>
       <svg
