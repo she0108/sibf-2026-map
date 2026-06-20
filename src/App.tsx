@@ -111,6 +111,8 @@ export default function App() {
         onClearSelect={() => setSelectedId(null)}
         onToggleVisit={toggleVisit}
         onReorderVisit={reorderVisit}
+        routeVisible={routeVisible}
+        onToggleRoute={() => toggleRouteVisibility('desktop_sidebar')}
       />
       <MapView
         booths={data.booths}
@@ -121,7 +123,6 @@ export default function App() {
         visitOrder={visitOrder}
         resetViewKey={mapResetKey}
         showRoute={routeVisible}
-        onToggleRoute={() => toggleRouteVisibility('desktop_map')}
         onSelect={selectBooth}
         onHover={setHoveredId}
       />

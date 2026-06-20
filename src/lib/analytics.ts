@@ -9,7 +9,7 @@ export type BoothViewSource =
 
 export type BoothSaveSource = 'search_results' | 'booth_list' | 'booth_detail'
 export type RouteSurface = 'sidebar' | 'mobile'
-export type RouteToggleSurface = 'desktop_map' | 'mobile_controls'
+export type RouteToggleSurface = 'desktop_sidebar' | 'mobile_controls'
 
 type AnalyticsEvents = {
   booth_search_completed: {

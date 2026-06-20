@@ -54,7 +54,6 @@ interface Props {
   visitOrder: string[]
   resetViewKey: number
   showRoute: boolean
-  onToggleRoute: () => void
   onSelect: (id: string) => void
   onHover: (id: string | null) => void
 }
@@ -68,7 +67,6 @@ export default function MapView({
   visitOrder,
   resetViewKey,
   showRoute,
-  onToggleRoute,
   onSelect,
   onHover,
 }: Props) {
@@ -173,21 +171,6 @@ export default function MapView({
             <path d="M20 15V20H15" />
             <path d="M9 20H4V15" />
           </svg>
-        </button>
-        <button
-          type="button"
-          className={'map__route-control' + (showRoute ? ' on' : '')}
-          aria-pressed={showRoute}
-          aria-label={showRoute ? '동선 숨기기' : '동선 표시'}
-          title={showRoute ? '동선 숨기기' : '동선 표시'}
-          onClick={onToggleRoute}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="6" cy="17" r="2" />
-            <circle cx="18" cy="7" r="2" />
-            <path d="M8 16C11 15 10 9 16 8" />
-          </svg>
-          <span>{showRoute ? '동선 숨김' : '동선 표시'}</span>
         </button>
       </div>
       <svg

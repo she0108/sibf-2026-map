@@ -21,7 +21,7 @@
 - `booth_save_changed`: 관심 부스를 추가하거나 제거할 때 기록한다.
 - `route_viewed`: PC 동선 탭 또는 모바일 동선 시트를 열 때 기록한다.
 - `route_reordered`: 저장한 부스 순서를 실제로 변경했을 때 기록한다.
-- `route_map_visibility_changed`: PC 지도 또는 모바일 컨트롤에서 동선 표시를 켜거나 끌 때 기록한다.
+- `route_map_visibility_changed`: PC 사이드바 또는 모바일 컨트롤에서 동선 표시를 켜거나 끌 때 기록한다.
 - `map_control_used`: 확대, 축소, 전체 보기 버튼 사용을 기록한다. 제스처 기반 이동/확대는 과다 수집을 피하기 위해 제외한다.
 - `booth_memo_saved`: 입력이 1.5초 멈췄을 때 본문 대신 글자 수만 기록한다.
 - `booth_photo_changed`: 사진 추가/삭제가 저장된 뒤 기록한다.

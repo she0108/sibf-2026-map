@@ -9,6 +9,8 @@ interface Props {
   order: string[]
   showInstruction?: boolean
   surface: RouteSurface
+  routeVisible?: boolean
+  onToggleRoute?: () => void
   onSelect: (id: string) => void
   onReorder: (from: number, to: number, surface: RouteSurface) => void
 }
@@ -18,6 +20,8 @@ export default function RouteList({
   order,
   showInstruction = true,
   surface,
+  routeVisible = false,
+  onToggleRoute,
   onSelect,
   onReorder,
 }: Props) {
@@ -39,7 +43,18 @@ export default function RouteList({
     >
       <div className="route-list">
         {showInstruction && (
-          <div className="side__section-title">드래그하여 순서 바꾸기</div>
+          <div className="route-list__toolbar">
+            <div className="side__section-title">드래그하여 순서 바꾸기</div>
+            <button
+              type="button"
+              className={'route-visibility-toggle' + (routeVisible ? ' on' : '')}
+              aria-pressed={routeVisible}
+              onClick={onToggleRoute}
+            >
+              <span>동선 표시</span>
+              <span className="route-visibility-toggle__track" aria-hidden="true" />
+            </button>
+          </div>
         )}
         <ul className="side__results">
           {order.map((id, index) => {

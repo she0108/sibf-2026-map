@@ -28,6 +28,8 @@ interface Props {
   onClearSelect: () => void
   onToggleVisit: (id: string, source: BoothSaveSource) => void
   onReorderVisit: (from: number, to: number, surface: RouteSurface) => void
+  routeVisible: boolean
+  onToggleRoute: () => void
 }
 
 export default function Sidebar({
@@ -43,6 +45,8 @@ export default function Sidebar({
   onClearSelect,
   onToggleVisit,
   onReorderVisit,
+  routeVisible,
+  onToggleRoute,
 }: Props) {
   const { hasQuery, results, allBooths, selectBooth } = useBoothSearch(
     booths,
@@ -146,6 +150,8 @@ export default function Sidebar({
             booths={booths}
             order={visitOrder}
             surface="sidebar"
+            routeVisible={routeVisible}
+            onToggleRoute={onToggleRoute}
             onSelect={(id) => selectBooth(id, 'route_sidebar', visitOrder.indexOf(id) + 1)}
             onReorder={onReorderVisit}
           />
