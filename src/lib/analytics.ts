@@ -1,11 +1,6 @@
 import type { PostHog } from 'posthog-js'
 
-export type BoothViewSource =
-  | 'map'
-  | 'search_results'
-  | 'booth_list'
-  | 'route_sidebar'
-  | 'route_mobile'
+export type BoothViewSource = 'map' | 'search_results' | 'booth_list'
 
 export type BoothSaveSource = 'search_results' | 'booth_list' | 'booth_detail'
 export type RouteSurface = 'sidebar' | 'mobile'
@@ -30,6 +25,11 @@ type AnalyticsEvents = {
     saved_count: number
   }
   route_viewed: { surface: RouteSurface; saved_count: number }
+  route_booth_highlighted: {
+    booth_id: string
+    surface: RouteSurface
+    position: number
+  }
   route_reordered: {
     surface: RouteSurface
     saved_count: number
@@ -40,6 +40,13 @@ type AnalyticsEvents = {
     visible: boolean
     saved_count: number
     surface: RouteToggleSurface
+  }
+  route_booth_visited_changed: {
+    booth_id: string
+    visited: boolean
+    surface: RouteSurface
+    visited_count: number
+    saved_count: number
   }
   map_control_used: { control: 'zoom_in' | 'zoom_out' | 'reset' }
   booth_memo_saved: { booth_id: string; memo_length: number; has_content: boolean }
@@ -53,8 +60,16 @@ type AnalyticsEvents = {
     booth_id: string
     reason: 'invalid_type' | 'quota' | 'load_failed' | 'storage_failure'
   }
-  data_backup_exported: { saved_booth_count: number; memo_count: number; photo_count: number }
-  data_backup_imported: { saved_booth_count: number; memo_count: number; photo_count: number }
+  data_backup_exported: {
+    saved_booth_count: number
+    memo_count: number
+    photo_count: number
+  }
+  data_backup_imported: {
+    saved_booth_count: number
+    memo_count: number
+    photo_count: number
+  }
   data_backup_failed: {
     action: 'export' | 'import'
     reason: 'archive_creation' | 'archive_read' | 'restore'

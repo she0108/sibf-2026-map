@@ -18,8 +18,13 @@ export const FACILITY_FILL = "#dadada";
 export const HIGHLIGHT = "#00ff00";
 export const HIGHLIGHT_FILL = "rgba(0,255,0,0.18)";
 
+export const ROUTE_HIGHLIGHT = "#84cc16";
+export const ROUTE_HIGHLIGHT_FILL = "rgba(132,204,22,0.32)";
+
 export const FAVORITE = "#ff1a1a";
 export const FAVORITE_FILL = "rgba(255,26,26,0.16)";
+export const VISITED = "#555";
+export const VISITED_FILL = "rgba(0,0,0,0.12)";
 
 export const ARROW = "#5a5a5a";
 

@@ -1,6 +1,8 @@
 import { del as idbDel, get as idbGet, set as idbSet, keys as idbKeys } from 'idb-keyval'
 
 const VISIT_KEY = 'sibf-visit'
+const VISITED_KEY = 'sibf-visited'
+const ROUTE_VISIBLE_KEY = 'sibf-route-visible'
 const MEMO_PREFIX = 'sibf-memo:'
 const memoKey = (id: string) => `${MEMO_PREFIX}${id}`
 const PHOTO_PREFIX_OLD = 'sibf-memo-photo:'
@@ -19,6 +21,39 @@ export function loadVisitOrder(): string[] {
 export function saveVisitOrder(order: string[]) {
   try {
     localStorage.setItem(VISIT_KEY, JSON.stringify(order))
+  } catch {
+    /* ignore */
+  }
+}
+
+export function loadVisitedBooths(): string[] {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(VISITED_KEY) || '[]')
+    return Array.isArray(parsed) ? parsed.filter((v): v is string => typeof v === 'string') : []
+  } catch {
+    return []
+  }
+}
+
+export function saveVisitedBooths(ids: string[]) {
+  try {
+    localStorage.setItem(VISITED_KEY, JSON.stringify(ids))
+  } catch {
+    /* ignore */
+  }
+}
+
+export function loadRouteVisible(): boolean {
+  try {
+    return localStorage.getItem(ROUTE_VISIBLE_KEY) === 'true'
+  } catch {
+    return false
+  }
+}
+
+export function saveRouteVisible(visible: boolean) {
+  try {
+    localStorage.setItem(ROUTE_VISIBLE_KEY, String(visible))
   } catch {
     /* ignore */
   }
