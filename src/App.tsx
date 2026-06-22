@@ -6,6 +6,7 @@ import MapView from './components/MapView'
 import Sidebar from './components/Sidebar'
 import type { SidebarTab } from './components/Sidebar'
 import MobileCourse from './components/MobileCourse'
+import DataManager from './components/DataManager'
 import { loadVisitOrder, migratePhotosToIndexedDB, saveVisitOrder } from './lib/storage'
 import { moveItem } from './lib/route'
 import {
@@ -113,6 +114,11 @@ export default function App() {
         onReorderVisit={reorderVisit}
         routeVisible={routeVisible}
         onToggleRoute={() => toggleRouteVisibility('desktop_sidebar')}
+        onDataImported={(order) => {
+          setVisitOrder(order)
+          setSelectedId(null)
+          setBoothQuery('')
+        }}
       />
       <MapView
         booths={data.booths}
@@ -125,6 +131,15 @@ export default function App() {
         showRoute={routeVisible}
         onSelect={selectBooth}
         onHover={setHoveredId}
+      />
+      <DataManager
+        mobile
+        boothIds={data.booths.map((booth) => booth.id)}
+        onImported={(order) => {
+          setVisitOrder(order)
+          setSelectedId(null)
+          setBoothQuery('')
+        }}
       />
       <MobileCourse
         booths={data.booths}

@@ -53,6 +53,12 @@ type AnalyticsEvents = {
     booth_id: string
     reason: 'invalid_type' | 'quota' | 'load_failed' | 'storage_failure'
   }
+  data_backup_exported: { saved_booth_count: number; memo_count: number; photo_count: number }
+  data_backup_imported: { saved_booth_count: number; memo_count: number; photo_count: number }
+  data_backup_failed: {
+    action: 'export' | 'import'
+    reason: 'archive_creation' | 'archive_read' | 'restore'
+  }
 }
 
 export function captureEvent<EventName extends keyof AnalyticsEvents>(

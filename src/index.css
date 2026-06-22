@@ -40,10 +40,221 @@ body {
   border-bottom: 1px solid #000;
 }
 .side__title {
+  min-width: 0;
   margin: 0;
+  overflow: hidden;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.data-manager {
+  position: relative;
+  flex: 0 0 auto;
+}
+.data-manager__trigger {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #d0d0d0;
+  background: transparent;
+  color: #111;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.data-manager__trigger svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.data-manager__trigger:hover {
+  border-color: #111;
+}
+.data-manager--mobile {
+  display: none;
+}
+
+.data-manager__layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.data-manager__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.42);
+}
+.data-manager__dialog {
+  position: relative;
+  width: min(440px, 100%);
+  max-height: min(680px, calc(100dvh - 40px));
+  overflow: auto;
+  border: 1px solid #111;
+  background: #fff;
+}
+.data-manager__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 16px 16px 20px;
+  border-bottom: 1px solid #ddd;
+}
+.data-manager__header > div {
+  flex: 1;
+  min-width: 0;
+}
+.data-manager__header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.data-manager__header p {
+  margin: 6px 0 0;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.data-manager__close {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.data-manager__close svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin: auto;
+}
+.data-manager__close path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.data-manager__body {
+  padding: 20px;
+}
+.data-manager__actions {
+  display: grid;
+  gap: 10px;
+}
+.data-manager__actions > button {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #bbb;
+  background: #fff;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+.data-manager__actions > button:hover:not(:disabled) {
+  border-color: #111;
+  background: #f7f7f7;
+}
+.data-manager__actions > button:disabled,
+.data-manager__confirm-actions button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.data-manager__actions strong {
+  font-size: 14px;
+}
+.data-manager__actions span {
+  color: #777;
+  font-size: 12px;
+}
+.data-manager__actions input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.data-manager__confirm h3 {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+.data-manager__confirm dl {
+  margin: 0;
+  border-top: 1px solid #ddd;
+}
+.data-manager__confirm dl div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+}
+.data-manager__confirm dt {
+  color: #777;
+}
+.data-manager__confirm dd {
+  margin: 0;
+  font-weight: 800;
+}
+.data-manager__confirm > p {
+  margin: 14px 0;
+  color: #c62828;
+  font-size: 12px;
+  font-weight: 700;
+}
+.data-manager__confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+.data-manager__confirm-actions button {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.data-manager__confirm-actions button:last-child {
+  background: #111;
+  color: #fff;
+}
+.data-manager__message,
+.data-manager__error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.data-manager__message {
+  background: rgba(0, 255, 0, 0.14);
+  color: #111;
+}
+.data-manager__error {
+  background: #ffebee;
+  color: #b71c1c;
 }
 .side__search {
   display: flex;
@@ -642,12 +853,35 @@ body {
     flex: 1;
     min-height: 0;
   }
-  .side__head,
   .side__tabs,
   .side__all {
     display: none;
   }
-
+  .side__head {
+    display: none;
+  }
+  .data-manager__dialog {
+    align-self: flex-end;
+    width: 100%;
+    max-height: calc(100dvh - 24px);
+    border-bottom: 0;
+  }
+  .data-manager__layer {
+    padding: 0;
+  }
+  .data-manager--mobile {
+    position: fixed;
+    right: 16px;
+    bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
+    z-index: 10;
+    display: block;
+  }
+  .data-manager--mobile .data-manager__trigger {
+    width: 36px;
+    height: 36px;
+    border-color: #d0d0d0;
+    background: #fff;
+  }
   .mobile-course-controls {
     position: fixed;
     left: 16px;

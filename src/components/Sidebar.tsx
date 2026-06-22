@@ -12,6 +12,7 @@ import { useAutosizeTextarea } from '../hooks/useAutosizeTextarea'
 import { useBoothSearch } from '../hooks/useBoothSearch'
 import RouteList from './RouteList'
 import { captureEvent, type BoothSaveSource, type RouteSurface } from '../lib/analytics'
+import DataManager from './DataManager'
 
 export type SidebarTab = 'search' | 'route'
 
@@ -30,6 +31,7 @@ interface Props {
   onReorderVisit: (from: number, to: number, surface: RouteSurface) => void
   routeVisible: boolean
   onToggleRoute: () => void
+  onDataImported: (visitOrder: string[]) => void
 }
 
 export default function Sidebar({
@@ -47,6 +49,7 @@ export default function Sidebar({
   onReorderVisit,
   routeVisible,
   onToggleRoute,
+  onDataImported,
 }: Props) {
   const { hasQuery, results, allBooths, selectBooth } = useBoothSearch(
     booths,
@@ -58,6 +61,7 @@ export default function Sidebar({
     <aside className="side">
       <div className="side__head">
         <h1 className="side__title">2026 서울국제도서전 부스 배치도</h1>
+        <DataManager boothIds={booths.map((booth) => booth.id)} onImported={onDataImported} />
       </div>
 
       <div className="side__tabs" role="tablist" aria-label="사이드바 메뉴">
