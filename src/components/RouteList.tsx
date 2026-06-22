@@ -4,13 +4,17 @@ import type { Booth } from '../types'
 import { displayName } from '../types'
 import type { RouteSurface } from '../lib/analytics'
 
+const EMPTY_VISITED = new Set<string>()
+
 interface Props {
   booths: Booth[]
   order: string[]
   showInstruction?: boolean
   surface: RouteSurface
   routeVisible?: boolean
+  visited?: Set<string>
   onToggleRoute?: () => void
+  onToggleVisited?: (id: string) => void
   onSelect: (id: string) => void
   onReorder: (from: number, to: number, surface: RouteSurface) => void
 }
@@ -21,11 +25,14 @@ export default function RouteList({
   showInstruction = true,
   surface,
   routeVisible = false,
+  visited = EMPTY_VISITED,
   onToggleRoute,
+  onToggleVisited,
   onSelect,
   onReorder,
 }: Props) {
   const byId = new Map(booths.map((b) => [b.id, b]))
+  const showChecklist = Boolean(onToggleVisited)
 
   if (order.length === 0) {
     return <div className="side__empty">★로 표시한 부스가 동선에 추가됩니다.</div>
@@ -42,20 +49,48 @@ export default function RouteList({
       }}
     >
       <div className="route-list">
-        {(showInstruction || onToggleRoute) && (
+        {surface === 'mobile' && (
           <div className="route-list__toolbar">
-            {showInstruction && (
-              <div className="side__section-title">드래그하여 순서 바꾸기</div>
-            )}
+            <div className="side__section-title">꾹 눌러 드래그하여 순서 변경</div>
             {onToggleRoute && (
               <button
                 type="button"
-                className={'route-visibility-toggle' + (routeVisible ? ' on' : '')}
-                aria-pressed={routeVisible}
+                className={'route-map-check' + (routeVisible ? ' on' : '')}
+                role="checkbox"
+                aria-checked={routeVisible}
                 onClick={onToggleRoute}
               >
-                <span>동선 표시</span>
-                <span className="route-visibility-toggle__track" aria-hidden="true" />
+                <span className="route-map-check__box" aria-hidden="true">
+                  {routeVisible && (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12L10 17L19 7" />
+                    </svg>
+                  )}
+                </span>
+                <span>지도에 동선 표시</span>
+              </button>
+            )}
+          </div>
+        )}
+        {showInstruction && (
+          <div className="route-list__secondary">
+            <div className="side__section-title">드래그하여 순서 바꾸기</div>
+            {onToggleRoute && (
+              <button
+                type="button"
+                className={'route-map-check' + (routeVisible ? ' on' : '')}
+                role="checkbox"
+                aria-checked={routeVisible}
+                onClick={onToggleRoute}
+              >
+                <span className="route-map-check__box" aria-hidden="true">
+                  {routeVisible && (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12L10 17L19 7" />
+                    </svg>
+                  )}
+                </span>
+                <span>지도에 동선 표시</span>
               </button>
             )}
           </div>
@@ -70,6 +105,9 @@ export default function RouteList({
                 id={id}
                 index={index}
                 name={name}
+                showChecklist={showChecklist}
+                visited={visited.has(id)}
+                onToggleVisited={onToggleVisited}
                 onSelect={onSelect}
               />
             )
@@ -84,39 +122,52 @@ function SortableRouteItem({
   id,
   index,
   name,
+  showChecklist,
+  visited,
+  onToggleVisited,
   onSelect,
 }: {
   id: string
   index: number
   name: string
+  showChecklist: boolean
+  visited: boolean
+  onToggleVisited?: (id: string) => void
   onSelect: (id: string) => void
 }) {
-  const { ref, handleRef, isDragSource } = useSortable({ id, index })
+  const { ref, isDragSource } = useSortable({ id, index })
 
   return (
     <li
       ref={ref}
-      className={'result route-item' + (isDragSource ? ' dragging' : '')}
+      className={
+        'result route-item' +
+        (isDragSource ? ' dragging' : '') +
+        (visited ? ' visited' : '')
+      }
       onClick={() => onSelect(id)}
     >
       <span className="route-num">{index + 1}</span>
       <span className="result__name">{name}</span>
       <span className="result__meta">{id}</span>
-      <span
-        ref={handleRef}
-        className="route-drag-handle"
-        role="button"
-        tabIndex={0}
-        title="드래그하여 순서 변경"
-        aria-label={`${name} 순서 변경`}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 7H20" />
-          <path d="M4 12H20" />
-          <path d="M4 17H20" />
-        </svg>
-      </span>
+      {showChecklist && (
+        <button
+          type="button"
+          className={'route-check' + (visited ? ' on' : '')}
+          aria-label={`${name} ${visited ? '방문 완료 취소' : '방문 완료'}`}
+          aria-pressed={visited}
+          onClick={(event) => {
+            event.stopPropagation()
+            onToggleVisited?.(id)
+          }}
+        >
+          {visited && (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12L10 17L19 7" />
+            </svg>
+          )}
+        </button>
+      )}
     </li>
   )
 }

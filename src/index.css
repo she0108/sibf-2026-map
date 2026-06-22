@@ -287,6 +287,9 @@ body {
   stroke-width: 1.6;
   stroke-linecap: square;
 }
+.side__search-clear {
+  display: none;
+}
 
 .side__results {
   list-style: none;
@@ -303,7 +306,7 @@ body {
 }
 .side__section-title {
   flex-shrink: 0;
-  padding: 12px 20px 4px;
+  padding: 12px 0px 4px 0px;
   color: #777;
   font-size: 12px;
   font-weight: 800;
@@ -416,53 +419,89 @@ body {
 .route-list__toolbar .side__section-title {
   padding: 0;
 }
-.route-visibility-toggle {
+.route-list__secondary {
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px 6px;
+}
+.route-list__secondary .side__section-title {
+  min-width: 0;
   padding: 0;
-  border: 0;
-  background: none;
+  font-weight: 600;
+}
+.route-map-check {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #777;
   font-family: inherit;
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   cursor: pointer;
 }
-.route-visibility-toggle__track {
-  position: relative;
-  width: 30px;
-  height: 18px;
-  border: 1px solid #aaa;
-  border-radius: 9px;
-  background: #fff;
-  transition: background 120ms ease, border-color 120ms ease;
-}
-.route-visibility-toggle__track::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #777;
-  transition: transform 120ms ease, background 120ms ease;
-}
-.route-visibility-toggle.on {
+.route-map-check.on {
   color: #111;
 }
-.route-visibility-toggle.on .route-visibility-toggle__track {
+.route-map-check__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  background: #fff;
+  color: #fff;
+}
+.route-map-check.on .route-map-check__box {
   border-color: #111;
   background: #111;
 }
-.route-visibility-toggle.on .route-visibility-toggle__track::after {
-  background: #fff;
-  transform: translateX(12px);
+.route-map-check__box svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.route-map-check:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 .route-item.dragging {
   opacity: 0.5;
+}
+.route-item {
+  min-height: 44px;
+  border-bottom: 1px solid #eee;
+}
+.side .route-item {
+  cursor: grab;
+}
+.side .route-item:active {
+  cursor: grabbing;
+}
+.route-item.visited {
+  background: #f5f5f5;
+  color: #111;
+}
+.route-item.visited:hover {
+  background: #eee;
+}
+.route-item.visited .result__name {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.route-item.visited .result__meta {
+  color: #777;
 }
 .route-num {
   flex-shrink: 0;
@@ -478,37 +517,36 @@ body {
   font-weight: 800;
   line-height: 1;
 }
-.route-drag-handle {
+.route-check {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   padding: 0;
-  color: #999;
-  cursor: grab;
-  touch-action: none;
+  border: 1px solid #999;
+  background: #fff;
+  color: #fff;
+  cursor: pointer;
 }
-.route-drag-handle:hover {
-  color: #111;
+.route-check.on {
+  border-color: #111;
+  background: #111;
 }
-.route-drag-handle:active {
-  cursor: grabbing;
-}
-.route-drag-handle:focus-visible {
+.route-check:focus-visible {
   outline: 2px solid #2563eb;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
-.route-drag-handle svg {
-  width: 20px;
-  height: 20px;
+.route-check svg {
+  width: 16px;
+  height: 16px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 2.2;
   stroke-linecap: round;
+  stroke-linejoin: round;
 }
-
 /* ── 상세 ── */
 .detail {
   flex: 1;
@@ -860,6 +898,29 @@ body {
   .side__head {
     display: none;
   }
+  .side__search-icon--has-query {
+    display: none;
+  }
+  .side__search-clear {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+  }
+  .side__search-clear svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+  }
   .data-manager__dialog {
     align-self: flex-end;
     width: 100%;
@@ -871,8 +932,8 @@ body {
   }
   .data-manager--mobile {
     position: fixed;
-    right: 16px;
-    bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
+    left: 16px;
+    bottom: max(32px, calc(env(safe-area-inset-bottom) + 20px));
     z-index: 10;
     display: block;
   }
@@ -884,8 +945,8 @@ body {
   }
   .mobile-course-controls {
     position: fixed;
-    left: 16px;
-    bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
+    right: 16px;
+    bottom: max(32px, calc(env(safe-area-inset-bottom) + 20px));
     z-index: 10;
     display: flex;
     align-items: center;
@@ -915,7 +976,19 @@ body {
     stroke: currentColor;
     stroke-width: 1.7;
   }
-
+  .mobile-course-trigger__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: #fff;
+    color: #111;
+    font-size: 11px;
+    line-height: 1;
+  }
   .mobile-course-layer {
     position: fixed;
     inset: 0;
@@ -965,7 +1038,7 @@ body {
   }
   .mobile-course-sheet__heading span {
     color: #888;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
   }
   .mobile-course-sheet__close {
@@ -990,11 +1063,21 @@ body {
     stroke-linecap: square;
   }
   .mobile-course-sheet .side__section-title {
-    padding: 12px 20px 6px;
+    padding: 0px;
   }
   .mobile-course-sheet .route-list__toolbar {
-    justify-content: flex-end;
-    padding: 12px 20px 6px;
+    padding: 14px 20px;
+  }
+  .mobile-course-sheet .route-map-check__box {
+    width: 16px;
+    height: 16px;
+  }
+  .mobile-course-sheet .route-map-check__box svg {
+    width: 12px;
+    height: 12px;
+  }
+  .mobile-course-sheet .route-map-check {
+    font-size: 12px;
   }
   .mobile-course-sheet .side__results {
     min-height: 0;
@@ -1004,15 +1087,15 @@ body {
   }
   .mobile-course-sheet .route-item {
     min-height: 52px;
-    padding: 4px 12px 4px 20px;
+    padding: 4px 20px;
   }
   .mobile-course-sheet .route-item .result__name {
     flex: 0 1 auto;
   }
-  .mobile-course-sheet .route-drag-handle {
+  .mobile-course-sheet .route-check {
     margin-left: auto;
-    width: 44px;
-    height: 44px;
+    width: 20px;
+    height: 20px;
   }
   .mobile-course-sheet .side__empty {
     padding: 24px 20px;

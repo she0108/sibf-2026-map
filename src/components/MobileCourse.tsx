@@ -8,9 +8,11 @@ interface Props {
   order: string[]
   open: boolean
   routeVisible: boolean
+  visited: Set<string>
   onOpen: () => void
   onClose: () => void
   onToggleRoute: () => void
+  onToggleVisited: (id: string) => void
   onSelect: (id: string) => void
   onReorder: (from: number, to: number, surface: RouteSurface) => void
 }
@@ -20,14 +22,17 @@ export default function MobileCourse({
   order,
   open,
   routeVisible,
+  visited,
   onOpen,
   onClose,
   onToggleRoute,
+  onToggleVisited,
   onSelect,
   onReorder,
 }: Props) {
   const triggerRef = useRef<HTMLButtonElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
+  const remainingCount = order.filter((id) => !visited.has(id)).length
 
   const close = useCallback(() => {
     onClose()
@@ -62,7 +67,13 @@ export default function MobileCourse({
             <path d="M6.5 15.5L10.5 8.5" />
             <path d="M13.5 8.5L17.5 15.5" />
           </svg>
-          동선 짜기
+          {order.length > 0 ? (
+            <>
+              내 동선 <span className="mobile-course-trigger__count">{remainingCount}</span>
+            </>
+          ) : (
+            '동선 짜기'
+          )}
         </button>
       </div>
 
@@ -84,7 +95,7 @@ export default function MobileCourse({
             <header className="mobile-course-sheet__header">
               <div className="mobile-course-sheet__heading">
                 <h2 id="mobile-course-title">내 동선</h2>
-                <span>드래그하여 순서 바꾸기</span>
+                <span>{remainingCount}/{order.length}</span>
               </div>
               <button
                 ref={closeRef}
@@ -105,11 +116,10 @@ export default function MobileCourse({
               showInstruction={false}
               surface="mobile"
               routeVisible={routeVisible}
+              visited={visited}
               onToggleRoute={onToggleRoute}
-              onSelect={(id) => {
-                onClose()
-                onSelect(id)
-              }}
+              onToggleVisited={onToggleVisited}
+              onSelect={onSelect}
               onReorder={onReorder}
             />
           </section>

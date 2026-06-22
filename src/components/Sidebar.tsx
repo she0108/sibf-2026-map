@@ -26,6 +26,7 @@ interface Props {
   onTabChange: (tab: SidebarTab) => void
   onQueryChange: (query: string) => void
   onSelect: (id: string) => void
+  onHighlightRouteBooth: (id: string) => void
   onClearSelect: () => void
   onToggleVisit: (id: string, source: BoothSaveSource) => void
   onReorderVisit: (from: number, to: number, surface: RouteSurface) => void
@@ -44,6 +45,7 @@ export default function Sidebar({
   onTabChange,
   onQueryChange,
   onSelect,
+  onHighlightRouteBooth,
   onClearSelect,
   onToggleVisit,
   onReorderVisit,
@@ -94,10 +96,27 @@ export default function Sidebar({
                 onChange={(e) => onQueryChange(e.target.value)}
                 placeholder="출판사명 / 부스번호 검색"
               />
-              <svg className="side__search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <svg
+                className={'side__search-icon' + (query ? ' side__search-icon--has-query' : '')}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
                 <circle cx="11" cy="11" r="6" />
                 <path d="M15.5 15.5L20 20" />
               </svg>
+              {query && (
+                <button
+                  type="button"
+                  className="side__search-clear"
+                  aria-label="검색어 지우기"
+                  onClick={() => onQueryChange('')}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 7L17 17" />
+                    <path d="M17 7L7 17" />
+                  </svg>
+                </button>
+              )}
             </div>
           )}
 
@@ -156,7 +175,7 @@ export default function Sidebar({
             surface="sidebar"
             routeVisible={routeVisible}
             onToggleRoute={onToggleRoute}
-            onSelect={(id) => selectBooth(id, 'route_sidebar', visitOrder.indexOf(id) + 1)}
+            onSelect={onHighlightRouteBooth}
             onReorder={onReorderVisit}
           />
         </div>

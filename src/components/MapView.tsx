@@ -21,9 +21,13 @@ import {
   MORE_MUTED,
   NAME_MUTED,
   ON_DARK,
+  ROUTE_HIGHLIGHT,
+  ROUTE_HIGHLIGHT_FILL,
   TOILET_FILL,
   TOILET_STROKE,
   TOILET_TEXT,
+  VISITED,
+  VISITED_FILL,
   WHITE,
 } from '../lib/colors'
 import {
@@ -38,6 +42,16 @@ import {
 const FONT = "'Noto Sans KR','Pretendard',system-ui,sans-serif"
 
 const MIN_CANVAS = { w: 3440, h: 3650 }
+const OVERVIEW_BOUNDS = { x1: 80, y1: 300, x2: 3060, y2: 3480 }
+
+function overviewTransform(canvas: { w: number; h: number }) {
+  const width = OVERVIEW_BOUNDS.x2 - OVERVIEW_BOUNDS.x1
+  const height = OVERVIEW_BOUNDS.y2 - OVERVIEW_BOUNDS.y1
+  const k = Math.min(canvas.w / width, canvas.h / height) * 0.98
+  const cx = (OVERVIEW_BOUNDS.x1 + OVERVIEW_BOUNDS.x2) / 2
+  const cy = (OVERVIEW_BOUNDS.y1 + OVERVIEW_BOUNDS.y2) / 2
+  return zoomIdentity.translate(canvas.w / 2 - k * cx, canvas.h / 2 - k * cy).scale(k)
+}
 
 type ZoomFilterEvent = Event & {
   touches?: TouchList
@@ -50,8 +64,10 @@ interface Props {
   viewBox: { w: number; h: number }
   selectedId: string | null
   hoveredId: string | null
+  highlightedId: string | null
   visit: Set<string>
   visitOrder: string[]
+  visited: Set<string>
   resetViewKey: number
   showRoute: boolean
   onSelect: (id: string) => void
@@ -63,8 +79,10 @@ export default function MapView({
   viewBox,
   selectedId,
   hoveredId,
+  highlightedId,
   visit,
   visitOrder,
+  visited,
   resetViewKey,
   showRoute,
   onSelect,
@@ -79,20 +97,24 @@ export default function MapView({
   const svgRef = useRef<SVGSVGElement | null>(null)
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null)
   const [t, setT] = useState<{ k: number; x: number; y: number }>({ k: 1, x: 0, y: 0 })
-  const canvas = {
-    w: Math.max(viewBox.w, MIN_CANVAS.w),
-    h: Math.max(viewBox.h, MIN_CANVAS.h),
-  }
+  const canvas = useMemo(
+    () => ({
+      w: Math.max(viewBox.w, MIN_CANVAS.w),
+      h: Math.max(viewBox.h, MIN_CANVAS.h),
+    }),
+    [viewBox.h, viewBox.w],
+  )
 
   const routeCenters = useMemo(() => {
     const byId = new Map(booths.map((b) => [b.id, b]))
     return visitOrder
+      .filter((id) => !visited.has(id))
       .map((id) => {
         const b = byId.get(id)
         return b ? { cx: b.x + b.w / 2, cy: b.y + b.h / 2 } : null
       })
       .filter((c): c is { cx: number; cy: number } => c !== null)
-  }, [booths, visitOrder])
+  }, [booths, visitOrder, visited])
 
   useEffect(() => {
     const sel = select(svgRef.current as SVGSVGElement)
@@ -108,11 +130,12 @@ export default function MapView({
       .on('zoom', (event: D3ZoomEvent<SVGSVGElement, unknown>) => setT(event.transform))
     sel.call(z)
     sel.on('dblclick.zoom', null)
+    sel.call(z.transform, overviewTransform(canvas))
     zoomRef.current = z
     return () => {
       sel.on('.zoom', null)
     }
-  }, [])
+  }, [canvas])
 
   const flyTo = (target: ZoomTransform) => {
     if (!svgRef.current || !zoomRef.current) return
@@ -134,12 +157,12 @@ export default function MapView({
 
   useEffect(() => {
     if (resetViewKey === 0) return
-    flyTo(zoomIdentity)
-  }, [resetViewKey])
+    flyTo(overviewTransform(canvas))
+  }, [canvas, resetViewKey])
 
   const reset = () => {
     captureEvent(posthog, 'map_control_used', { control: 'reset' })
-    flyTo(zoomIdentity)
+    flyTo(overviewTransform(canvas))
   }
 
   const zoomBy = (factor: number) => {
@@ -187,7 +210,9 @@ export default function MapView({
               b={b}
               selected={b.id === selectedId}
               hovered={b.id === hoveredId}
+              highlighted={b.id === highlightedId}
               visit={visit.has(b.id)}
+              visited={visited.has(b.id)}
               onSelect={handleSelect}
               onHover={onHover}
             />
@@ -218,14 +243,14 @@ function MapAnnotations() {
 
 function RouteOverlay({ centers }: { centers: { cx: number; cy: number }[] }) {
   if (centers.length < 2) return null
-  const head = 32
+  const head = 22.4
   const spread = 0.5
   return (
     <g
       pointerEvents="none"
       fill="none"
       stroke={FAVORITE}
-      strokeWidth={4}
+      strokeWidth={1.4}
       strokeLinecap="round"
       strokeLinejoin="round"
     >
@@ -253,8 +278,8 @@ function RouteOverlay({ centers }: { centers: { cx: number; cy: number }[] }) {
           ` L${ex + head * Math.cos(a2)} ${ey + head * Math.sin(a2)}`
         return (
           <g key={i}>
-            <line x1={sx} y1={sy} x2={ex} y2={ey} />
-            <path d={chevron} />
+            <line x1={sx} y1={sy} x2={ex} y2={ey} vectorEffect="non-scaling-stroke" />
+            <path d={chevron} vectorEffect="non-scaling-stroke" />
           </g>
         )
       })}
@@ -344,12 +369,14 @@ interface ShapeProps {
   b: Booth
   selected: boolean
   hovered: boolean
+  highlighted: boolean
   visit: boolean
+  visited: boolean
   onSelect: (id: string) => void
   onHover: (id: string | null) => void
 }
 
-function BoothShape({ b, selected, hovered, visit, onSelect, onHover }: ShapeProps) {
+function BoothShape({ b, selected, hovered, highlighted, visit, visited, onSelect, onHover }: ShapeProps) {
   const cx = b.x + b.w / 2
   const cy = b.y + b.h / 2
   const allNames = b.exhibitors.map(displayName).filter(Boolean)
@@ -383,7 +410,7 @@ function BoothShape({ b, selected, hovered, visit, onSelect, onHover }: ShapePro
       onMouseLeave={() => onHover(null)}
     >
       <rect x={b.x} y={b.y} width={b.w} height={b.h} fill={baseFill} stroke={WHITE} strokeWidth={1} />
-      {visit && (
+      {visit && !visited && (
         <rect
           x={b.x}
           y={b.y}
@@ -391,6 +418,19 @@ function BoothShape({ b, selected, hovered, visit, onSelect, onHover }: ShapePro
           height={b.h}
           fill={FAVORITE_FILL}
           stroke={FAVORITE}
+          strokeWidth={2}
+          vectorEffect="non-scaling-stroke"
+          pointerEvents="none"
+        />
+      )}
+      {visited && (
+        <rect
+          x={b.x}
+          y={b.y}
+          width={b.w}
+          height={b.h}
+          fill={VISITED_FILL}
+          stroke={VISITED}
           strokeWidth={2}
           vectorEffect="non-scaling-stroke"
           pointerEvents="none"
@@ -405,6 +445,19 @@ function BoothShape({ b, selected, hovered, visit, onSelect, onHover }: ShapePro
           fill={selected ? HIGHLIGHT_FILL : 'none'}
           stroke={HIGHLIGHT}
           strokeWidth={selected ? 3 : 2}
+          vectorEffect="non-scaling-stroke"
+          pointerEvents="none"
+        />
+      )}
+      {highlighted && (
+        <rect
+          x={b.x}
+          y={b.y}
+          width={b.w}
+          height={b.h}
+          fill={ROUTE_HIGHLIGHT_FILL}
+          stroke={ROUTE_HIGHLIGHT}
+          strokeWidth={3}
           vectorEffect="non-scaling-stroke"
           pointerEvents="none"
         />
