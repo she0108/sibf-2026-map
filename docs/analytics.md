@@ -13,6 +13,7 @@
 | 지도 위 동선 표시가 사용되는가? | `route_map_visibility_changed` (`visible = true`) | `saved_count`, `surface` |
 | 현장에서 기록 기능을 쓰는가? | `booth_memo_saved`, `booth_photo_changed` | `has_content`, `photo_count` |
 | 사진 첨부가 실패하는 이유는 무엇인가? | `booth_photo_failed` | `reason` |
+| 데이터 백업·복원이 사용되는가? | `data_backup_exported`, `data_backup_imported`, `data_backup_failed` | 저장 부스·메모·사진 수, 실패 사유 |
 
 ## 이벤트 명세
 
@@ -26,6 +27,9 @@
 - `booth_memo_saved`: 입력이 1.5초 멈췄을 때 본문 대신 글자 수만 기록한다.
 - `booth_photo_changed`: 사진 추가/삭제가 저장된 뒤 기록한다.
 - `booth_photo_failed`: 사진 추가가 실패했을 때 사유를 기록한다.
+- `data_backup_exported`: 전체 데이터 ZIP 백업을 내보낸 뒤 기록한다.
+- `data_backup_imported`: ZIP 백업을 복원한 뒤 기록한다.
+- `data_backup_failed`: 백업 내보내기 또는 가져오기에 실패했을 때 기록한다.
 
 ## 권장 PostHog 대시보드
 
