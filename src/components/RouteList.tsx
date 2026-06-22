@@ -42,18 +42,22 @@ export default function RouteList({
       }}
     >
       <div className="route-list">
-        {showInstruction && (
+        {(showInstruction || onToggleRoute) && (
           <div className="route-list__toolbar">
-            <div className="side__section-title">드래그하여 순서 바꾸기</div>
-            <button
-              type="button"
-              className={'route-visibility-toggle' + (routeVisible ? ' on' : '')}
-              aria-pressed={routeVisible}
-              onClick={onToggleRoute}
-            >
-              <span>동선 표시</span>
-              <span className="route-visibility-toggle__track" aria-hidden="true" />
-            </button>
+            {showInstruction && (
+              <div className="side__section-title">드래그하여 순서 바꾸기</div>
+            )}
+            {onToggleRoute && (
+              <button
+                type="button"
+                className={'route-visibility-toggle' + (routeVisible ? ' on' : '')}
+                aria-pressed={routeVisible}
+                onClick={onToggleRoute}
+              >
+                <span>동선 표시</span>
+                <span className="route-visibility-toggle__track" aria-hidden="true" />
+              </button>
+            )}
           </div>
         )}
         <ul className="side__results">
@@ -108,8 +112,9 @@ function SortableRouteItem({
         onClick={(event) => event.stopPropagation()}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 9H20" />
-          <path d="M4 15H20" />
+          <path d="M4 7H20" />
+          <path d="M4 12H20" />
+          <path d="M4 17H20" />
         </svg>
       </span>
     </li>

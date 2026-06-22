@@ -55,16 +55,14 @@ export default function MobileCourse({
           aria-controls="mobile-course-sheet"
           onClick={onOpen}
         >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="5" cy="17" r="2" />
+            <circle cx="12" cy="7" r="2" />
+            <circle cx="19" cy="17" r="2" />
+            <path d="M6.5 15.5L10.5 8.5" />
+            <path d="M13.5 8.5L17.5 15.5" />
+          </svg>
           동선 짜기
-        </button>
-        <button
-          type="button"
-          aria-pressed={routeVisible}
-          aria-label={routeVisible ? '동선 숨기기' : '동선 표시'}
-          className="mobile-route-toggle"
-          onClick={onToggleRoute}
-        >
-          {routeVisible ? '동선 숨김' : '동선 표시'}
         </button>
       </div>
 
@@ -106,6 +104,8 @@ export default function MobileCourse({
               order={order}
               showInstruction={false}
               surface="mobile"
+              routeVisible={routeVisible}
+              onToggleRoute={onToggleRoute}
               onSelect={(id) => {
                 onClose()
                 onSelect(id)
