@@ -1,7 +1,8 @@
 import { del as idbDel, get as idbGet, set as idbSet, keys as idbKeys } from 'idb-keyval'
 
 const VISIT_KEY = 'sibf-visit'
-const memoKey = (id: string) => `sibf-memo:${id}`
+const MEMO_PREFIX = 'sibf-memo:'
+const memoKey = (id: string) => `${MEMO_PREFIX}${id}`
 const PHOTO_PREFIX_OLD = 'sibf-memo-photo:'
 const PHOTO_MIGRATED_FLAG = 'sibf-photo-migrated-v1'
 const photoIdbKey = (id: string) => `photo:${id}`
@@ -39,6 +40,21 @@ export function saveMemo(id: string, value: string) {
   }
 }
 
+export function loadAllMemos(): Record<string, string> {
+  const memos: Record<string, string> = {}
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (!key?.startsWith(MEMO_PREFIX)) continue
+      const value = localStorage.getItem(key)
+      if (value !== null) memos[key.slice(MEMO_PREFIX.length)] = value
+    }
+  } catch {
+    /* return what could be read */
+  }
+  return memos
+}
+
 export async function loadMemoPhotos(id: string): Promise<Blob[]> {
   try {
     const blobs = await idbGet<Blob[]>(photoIdbKey(id))
@@ -58,6 +74,67 @@ export async function saveMemoPhotos(id: string, blobs: Blob[]): Promise<boolean
     return true
   } catch {
     return false
+  }
+}
+
+export async function loadAllMemoPhotos(): Promise<Record<string, Blob[]>> {
+  const photos: Record<string, Blob[]> = {}
+  const keys = await idbKeys()
+  for (const key of keys) {
+    const value = String(key)
+    if (!value.startsWith('photo:')) continue
+    const blobs = await idbGet<Blob[]>(key)
+    if (Array.isArray(blobs) && blobs.every((blob) => blob instanceof Blob)) {
+      photos[value.slice('photo:'.length)] = blobs
+    }
+  }
+  return photos
+}
+
+async function writeStoredData(
+  visitOrder: string[],
+  memos: Record<string, string>,
+  photos: Record<string, Blob[]>,
+) {
+  const keys = await idbKeys()
+  await Promise.all(
+    keys
+      .filter((key) => String(key).startsWith('photo:'))
+      .map((key) => idbDel(key)),
+  )
+  await Promise.all(
+    Object.entries(photos).map(([boothId, blobs]) => idbSet(photoIdbKey(boothId), blobs)),
+  )
+
+  const memoKeys: string[] = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key?.startsWith(MEMO_PREFIX)) memoKeys.push(key)
+  }
+  memoKeys.forEach((key) => localStorage.removeItem(key))
+  Object.entries(memos).forEach(([boothId, memo]) => localStorage.setItem(memoKey(boothId), memo))
+  localStorage.setItem(VISIT_KEY, JSON.stringify(visitOrder))
+}
+
+export async function replaceStoredData(
+  visitOrder: string[],
+  memos: Record<string, string>,
+  photos: Record<string, Blob[]>,
+) {
+  const previous = {
+    visitOrder: loadVisitOrder(),
+    memos: loadAllMemos(),
+    photos: await loadAllMemoPhotos(),
+  }
+  try {
+    await writeStoredData(visitOrder, memos, photos)
+  } catch (error) {
+    try {
+      await writeStoredData(previous.visitOrder, previous.memos, previous.photos)
+    } catch {
+      /* preserve the original import failure */
+    }
+    throw error
   }
 }
 
